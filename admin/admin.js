@@ -1,15 +1,16 @@
 // ================================================================
 // BIJOU Admin – Inventory Manager
 // Supabase-backed CRUD for Restaurant & Lounge sections
-//
-// Credentials are loaded from env.js (gitignored).
 // ================================================================
 
+const SUPABASE_URL  = 'https://mwcegvrxwvtpdlyorhpr.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im13Y2VndnJ4d3Z0cGRseW9yaHByIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0NzU3MDgsImV4cCI6MjEwNjA1MTcwOH0.zRg_eEGHPVXXke13TYNYb6NmpoZc7LgYpzZM1z24HF8';
+
 // ----------------------------------------------------------------
-// Initialise Supabase client — credentials come from admin/env.js
+// Initialise Supabase client (CDN global: window.supabase)
 // ----------------------------------------------------------------
 const { createClient } = window.supabase;
-const db = createClient(window.SUPABASE_URL, window.SUPABASE_ANON);
+const db = createClient(SUPABASE_URL, SUPABASE_ANON);
 
 // ─── DOM References ─────────────────────────────────────────────
 const statusDot    = document.getElementById('statusDot');
