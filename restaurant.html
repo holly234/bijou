@@ -3,19 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>BIJOU | Restaurant & Dining Menu</title>
+  <title>BIJOU | Restaurant &amp; Dining Menu</title>
   <meta name="description" content="Bijou Restaurant dining menu - signature platters, firewood jollof, ofada delicacies, native soups, and gourmet pepper soups.">
   <meta name="theme-color" content="#0b0c10">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="menu-page">
+<body class="menu-page" data-section="restaurant">
 
-  <!-- Top Navigation Bar -->
   <nav class="page-topbar" aria-label="Restaurant Page Navigation">
     <a href="index.html" class="topbar-back-btn" title="Back to Portal Selection">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -23,405 +20,35 @@
       </svg>
       <span>Back</span>
     </a>
-
     <div class="topbar-center-brand">
       <img src="assets/bijou_logo.png" alt="Bijou" class="topbar-logo-img">
     </div>
-
     <div class="topbar-actions">
-      <a href="lounge.html" class="topbar-switch-btn" title="Go to Lounge & Drinks Menu">
+      <a href="lounge.html" class="topbar-switch-btn" title="Go to Lounge &amp; Drinks Menu">
         <span>🍸 Drinks</span>
       </a>
     </div>
   </nav>
 
-  <!-- Clean Page Header -->
   <header class="menu-page-header">
     <h1 class="menu-page-title">RESTAURANT MENU</h1>
     <p class="menu-page-subtitle">Bijou Bistro &bull; Freshly Prepared to Order</p>
   </header>
 
-  <!-- Sleek Category Navigation Tabs -->
+  <!-- Category Tabs — built dynamically by menu-loader.js -->
   <div class="category-tabs-container">
-    <div class="category-tabs-track" id="categoryTabsTrack">
-      <button type="button" class="cat-tab-btn active" data-category="all">All Dishes</button>
-      <button type="button" class="cat-tab-btn" data-category="platters">Platters</button>
-      <button type="button" class="cat-tab-btn" data-category="jollof">Jollof &amp; Rice</button>
-      <button type="button" class="cat-tab-btn" data-category="ofada">Ofada Stews</button>
-      <button type="button" class="cat-tab-btn" data-category="swallow">Amala &amp; Swallows</button>
-      <button type="button" class="cat-tab-btn" data-category="soups">Native Soups</button>
-      <button type="button" class="cat-tab-btn" data-category="peppersoup">Pepper Soups</button>
-      <button type="button" class="cat-tab-btn" data-category="pasta">Pastas &amp; Salads</button>
-      <button type="button" class="cat-tab-btn" data-category="extras">Sides &amp; Extras</button>
-    </div>
+    <div class="category-tabs-track" id="categoryTabsTrack"></div>
   </div>
 
-  <!-- Menu Feed Container -->
-  <main class="menu-feed-container" id="restaurantMenuFeed">
-
-    <!-- Group 1: Signature Platters -->
-    <section class="menu-group" data-group="platters">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Signature Platters</h2>
-        <span class="menu-group-count">2 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">1911 Special Platter</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦62,500</div>
-        </div>
-        <p class="item-desc">Spicy Chicken Wings (4), Spiced Turkey (4), Peppered Gizzard (4), Crispy Yam Fries, Sweet Plantain Fries &amp; Bottled Water with House Signature Sauce.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">1911 Mega VIP Platter</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦121,500</div>
-        </div>
-        <p class="item-desc">Chicken Wings (7), Turkey (7), Peppered Gizzard (10), Jumbo Snails (5), Crab (2), Jumbo Prawns (2), Yam Fries, Plantain Fries, Sweet Potato Chunks &amp; 2 Soft Drinks.</p>
-      </div>
-    </section>
-
-    <!-- Group 2: Jollof & Rice Specialties -->
-    <section class="menu-group" data-group="jollof">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Firewood Jollof &amp; Rice</h2>
-        <span class="menu-group-count">7 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Firewood Delight</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦9,750</div>
-        </div>
-        <p class="item-desc">Signature Smokey Firewood Jollof Rice, steamed Moi-Moi, sweet diced plantain, 2 succulent beef cuts &amp; bottled water.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Jollof Reloaded</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦14,250</div>
-        </div>
-        <p class="item-desc">Smokey Jollof, fresh Coleslaw, Moi-Moi, Plantain, Choice of 1 Hake or Panla Fish, 2 Beef cuts &amp; bottled water.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Hot Pot Jollof</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦18,750</div>
-        </div>
-        <p class="item-desc">Smokey Jollof Rice, Coleslaw, Moi-Moi, Plantain, 1 Spiced Turkey, 1 Fish, 1 Soft Drink &amp; bottled water.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Royal Jollof Supreme</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦28,750</div>
-        </div>
-        <p class="item-desc">Smokey Jollof, Coleslaw, Moi-Moi, Plantain, 1 Turkey, 1 Fish, 1 Crispy Chicken, 1 Beef, Soft Ponmo &amp; 2 Drinks.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">1911 Special Basmati</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦28,250</div>
-        </div>
-        <p class="item-desc">Fragrant Basmati Rice, Jumbo Prawns, garden vegetables, diced plantain, served with Choice of Turkey, Chicken or Fish.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Gourmet Fried Rice</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦11,750</div>
-        </div>
-        <p class="item-desc">Golden Seasoned Fried Rice, Plantain, Moi-Moi, 2 Beef cuts, crisp Coleslaw &amp; bottled water.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Aromatic Coconut Rice</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦16,750</div>
-        </div>
-        <p class="item-desc">Creamy Coconut Rice with Rich Savory Sauce, 1 Boiled Egg, 1 Beef, 1 Ponmo, Panla Fish &amp; bottled water.</p>
-      </div>
-    </section>
-
-    <!-- Group 3: Ofada Delicacies -->
-    <section class="menu-group" data-group="ofada">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Ofada &amp; Native Stews</h2>
-        <span class="menu-group-count">5 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Ofada Bliss</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦7,750</div>
-        </div>
-        <p class="item-desc">Aromatic Ofada Rice, plantain, boiled egg, 2 cuts assorted meat, ponmo &amp; authentic Ayamase designer sauce.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Ofada Delight</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦12,750</div>
-        </div>
-        <p class="item-desc">Ofada Rice, Stewed Honey Beans, Plantain, 1 Egg, 1 Ponmo, 1 Panla Fish, 2 Assorted Meat &amp; bottled water.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Ofada Aladun</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦18,250</div>
-        </div>
-        <p class="item-desc">Ofada Rice, Stewed Beans, Plantain, 2 Boiled Eggs, 1 Ponmo, 2 Assorted Meat, 1 Fish &amp; 1 Soft Drink.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Ofada Olola Feast</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦28,750</div>
-        </div>
-        <p class="item-desc">Premium Ofada Rice, Stewed Beans, Plantain, 2 Boiled Eggs, 3 Soft Ponmo, 2 Beef cuts, 2 Assorted Meat, Fish &amp; Drinks.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Ewa Agonyin Royale</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦8,750</div>
-        </div>
-        <p class="item-desc">Mashed Honey Beans drenched in dark caramelized Agonyin pepper sauce, fried plantain, Eja Kika (dry fish) &amp; 2 Ponmo.</p>
-      </div>
-    </section>
-
-    <!-- Group 4: Amala & Swallows -->
-    <section class="menu-group" data-group="swallow">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Amala &amp; Swallows</h2>
-        <span class="menu-group-count">4 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Gbayi Amala Special</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦7,250</div>
-        </div>
-        <p class="item-desc">Silky Hot Amala (3 Scoops), Gbegiri &amp; Ewedu, 2 Assorted Meats, 2 Soft Ponmo &amp; 1 bottled water.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Amuludun Amala Special</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦11,250</div>
-        </div>
-        <p class="item-desc">Hot Amala (3 Scoops), Gbegiri/Ewedu, 1 Tender Cut of Goat Meat, 2 Ponmo &amp; 2 Assorted Meat cuts.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Oga-Nla Amala Special</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦15,250</div>
-        </div>
-        <p class="item-desc">Amala (4 Scoops), Gbegiri/Ewedu, 1 Goat Meat, 2 Soft Ponmo, 2 Assorted Meat, 1 Fish &amp; 1 Soft Drink.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Olowo-Eko Grand Feast</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦24,750</div>
-        </div>
-        <p class="item-desc">Amala (6 Generous Scoops), Gbegiri/Ewedu, 2 Goat Meat Cuts, 4 Soft Ponmo, 6 Assorted Meat Cuts &amp; 2 Soft Drinks.</p>
-      </div>
-    </section>
-
-    <!-- Group 5: Native Soups -->
-    <section class="menu-group" data-group="soups">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Gourmet Native Soups</h2>
-        <span class="menu-group-count">5 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Seafood Okro Royale</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦27,500</div>
-        </div>
-        <p class="item-desc">Whole Crab, Jumbo Tiger Prawns, Tender Calamari, Fish cuts in crunchy garden Okro. Served with choice of Swallow.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Efo Riro Elemi Meje</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦12,100</div>
-        </div>
-        <p class="item-desc">Rich Yoruba spinach soup with locust beans (iru), fried fish, cow meat, ponmo &amp; native aromatics with Swallow.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Egusi with Vegetables</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦12,100</div>
-        </div>
-        <p class="item-desc">Slow-fried melon seed soup enriched with bitterleaf/ugwu, fried fish and tender meats with Swallow.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Fisherman Soup (Niger Delta)</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦23,500</div>
-        </div>
-        <p class="item-desc">Fresh catfish, fresh crab, prawns &amp; sea mollusks in spicy aromatic coastal broth with choice of swallow.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Traditional Soups Selection</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦11,000 - ₦12,300</div>
-        </div>
-        <p class="item-desc">Choose from: Draw Ogbono (₦11,000) &bull; Oha Soup (₦12,300) &bull; Calabar Afang (₦12,300) &bull; Edikaikong (₦12,000) &bull; Ofe-Nsala (₦12,300).</p>
-      </div>
-    </section>
-
-    <!-- Group 6: Pepper Soups -->
-    <section class="menu-group" data-group="peppersoup">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Native Pepper Soups</h2>
-        <span class="menu-group-count">4 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Point &amp; Kill Peppersoup</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦46,250</div>
-        </div>
-        <p class="item-desc">Fresh Live Fisherman Catfish or Whole Country Chicken in authentic herbal peppersoup broth with sweet potatoes or plantain.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Sea Food Pepper Soup</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦27,250</div>
-        </div>
-        <p class="item-desc">Fresh Crab, Fresh Fish, and Prawns simmered in peppery herbal broth with sweet potato chunks.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Goat Meat Pepper Soup</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦12,250</div>
-        </div>
-        <p class="item-desc">Tender cuts of fresh goat meat cooked in spicy traditional pepper soup broth with sweet potatoes.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Fresh Fish Pepper Soup</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦17,250</div>
-        </div>
-        <p class="item-desc">Fresh fish steak simmered in spicy broth with native herbs and potatoes. (Half Plate: ₦12,250).</p>
-      </div>
-    </section>
-
-    <!-- Group 7: Pastas & Salads -->
-    <section class="menu-group" data-group="pasta">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Pastas &amp; Fresh Salads</h2>
-        <span class="menu-group-count">4 Items</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Creamy Italian Herb Pasta</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦21,000</div>
-        </div>
-        <p class="item-desc">Rich garlic parmesan cream sauce, al dente penne pasta, herb seasoning and grilled protein cuts.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Stir-fry Spaghetti Special</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦19,000</div>
-        </div>
-        <p class="item-desc">Spaghetti wok-tossed with peppers, carrots, prawns and chili oil. (Half: ₦11,000 &bull; Spaghetti Jollof: ₦9,000).</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Prawn Caesar Salad</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦14,500</div>
-        </div>
-        <p class="item-desc">Jumbo prawns, diced chicken, crisp lettuce, tomatoes, parmesan, garlic croutons in creamy dressing.</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Chicken Caesar Salad</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦8,600</div>
-        </div>
-        <p class="item-desc">Grilled chicken breast strips, crisp romaine, parmesan, garlic croutons. (Coleslaw Bowl: ₦5,700).</p>
-      </div>
-    </section>
-
-    <!-- Group 8: Proteins & Extras -->
-    <section class="menu-group" data-group="extras">
-      <div class="menu-group-header">
-        <h2 class="menu-group-title">Extra Proteins &amp; Sides</h2>
-        <span class="menu-group-count">2 Selections</span>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">A La Carte Extra Proteins</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦3,000 - ₦23,500</div>
-        </div>
-        <p class="item-desc">Peppered Snail (₦11,500) &bull; Turkey (₦11,500) &bull; Chicken (₦11,500) &bull; Goat (₦4,000) &bull; Beef (₦3,000) &bull; Panla (₦3,100) &bull; Hake (₦4,100) &bull; Tilapia (₦11,300) &bull; Giant Owene (₦23,500).</p>
-      </div>
-
-      <div class="menu-item-row">
-        <div class="item-header-line">
-          <span class="item-name">Swallows &amp; Gourmet Sides</span>
-          <div class="item-dots-spacer"></div>
-          <div class="item-price">₦3,500 each</div>
-        </div>
-        <p class="item-desc">Pounded Yam &bull; Amala &bull; Semovita &bull; Eba &bull; Starch &bull; Fried Plantain &bull; Moi-Moi &bull; French Fries &bull; Yam Fries.</p>
-      </div>
-    </section>
-
+  <!-- Menu Feed — populated dynamically by menu-loader.js -->
+  <main class="menu-feed-container" id="menuFeed">
+    <div class="menu-loading-spinner" aria-label="Loading menu">
+      <div class="spinner-ring"></div>
+      <p>Loading menu…</p>
+    </div>
   </main>
 
-  <script src="menu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="menu-loader.js"></script>
 </body>
 </html>
