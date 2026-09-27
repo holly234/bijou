@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BIJOU — QR Codes (Print)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0c0d0f;
+      color: #f4eee2;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+      gap: 3rem;
+    }
+
+    .page-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.18em;
+      color: #d4af37;
+      text-align: center;
+    }
+    .page-subtitle {
+      font-size: 0.8rem;
+      color: #6b6352;
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-top: 0.4rem;
+    }
+
+    .qr-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+
+    .qr-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.75rem 1.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 240px;
+      box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .qr-card img {
+      width: 180px;
+      height: 180px;
+      display: block;
+    }
+
+    .qr-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #0c0d0f;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .qr-sub {
+      font-size: 0.65rem;
+      color: #6b6352;
+      text-align: center;
+      margin-top: -0.5rem;
+    }
+
+    .print-btn {
+      background: #d4af37;
+      color: #0c0d0f;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 2rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #f5e2a3; }
+
+    @media print {
+      body { background: #fff; padding: 1rem; }
+      .print-btn { display: none; }
+      .page-title, .page-subtitle { color: #0c0d0f; }
+      .qr-card { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1 class="page-title">BIJOU LOUNGE & RESTAURANT</h1>
+    <p class="page-subtitle">SCAN TO VIEW MENU</p>
+  </div>
+
+  <div class="qr-grid">
+
+    <div class="qr-card">
+      <img src="assets/qr-landing.png" alt="QR — Main Menu">
+      <span class="qr-label">Main Portal</span>
+      <span class="qr-sub">Choose Restaurant or Lounge</span>
+    </div>
+
+    <div class="qr-card">
+      <img src="assets/qr-restaurant.png" alt="QR — Restaurant Menu">
+      <span class="qr-label">Restaurant</span>
+      <span class="qr-sub">Food & Dining Menu</span>
+    </div>
+
+    <div class="qr-card">
+      <img src="assets/qr-lounge.png" alt="QR — Lounge Menu">
+      <span class="qr-label">Lounge & Drinks</span>
+      <span class="qr-sub">Spirits, Cocktails & More</span>
+    </div>
+
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨️ Print QR Codes</button>
+
+</body>
+</html>
