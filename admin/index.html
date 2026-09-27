@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIJOU | Inventory Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="admin-header">
+    <div class="header-brand">
+      <span class="header-logo">BIJOU</span>
+      <span class="header-sub">Inventory Admin</span>
+    </div>
+    <div class="header-actions">
+      <span class="connection-status" id="connectionStatus" aria-live="polite">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Connecting…</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN LAYOUT
+  ============================================================ -->
+  <main class="admin-main">
+
+    <!-- ── Tab Bar ─────────────────────────────────────────────── -->
+    <nav class="tab-nav" role="tablist" aria-label="Inventory sections">
+      <button class="tab-btn active" role="tab" aria-selected="true"
+              aria-controls="panel-restaurant" id="tab-restaurant"
+              data-section="restaurant">
+        🍽️ Restaurant
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false"
+              aria-controls="panel-lounge" id="tab-lounge"
+              data-section="lounge">
+        🍸 Lounge &amp; Drinks
+      </button>
+    </nav>
+
+    <!-- ── Toast notification ─────────────────────────────────── -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+    <!-- ── Restaurant Panel ───────────────────────────────────── -->
+    <section class="tab-panel active" id="panel-restaurant" role="tabpanel"
+             aria-labelledby="tab-restaurant">
+      <div class="panel-toolbar">
+        <div class="search-wrap">
+          <label for="searchRestaurant" class="visually-hidden">Search restaurant items</label>
+          <input type="search" id="searchRestaurant" class="search-input"
+                 placeholder="Search dishes…" autocomplete="off">
+        </div>
+        <button class="btn btn-add" id="addRestaurantBtn" aria-label="Add new restaurant item">
+          + Add Item
+        </button>
+      </div>
+      <div class="table-wrap">
+        <table class="inventory-table" id="restaurantTable">
+          <thead>
+            <tr>
+              <th scope="col">Item Name</th>
+              <th scope="col">Category</th>
+              <th scope="col" class="col-qty">Qty / Pieces</th>
+              <th scope="col" class="col-unit">Unit</th>
+              <th scope="col" class="col-price">Price</th>
+              <th scope="col" class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="restaurantBody">
+            <tr class="skeleton-row">
+              <td colspan="6"><span class="skeleton"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Lounge Panel ────────────────────────────────────────── -->
+    <section class="tab-panel" id="panel-lounge" role="tabpanel"
+             aria-labelledby="tab-lounge" hidden>
+      <div class="panel-toolbar">
+        <div class="search-wrap">
+          <label for="searchLounge" class="visually-hidden">Search lounge items</label>
+          <input type="search" id="searchLounge" class="search-input"
+                 placeholder="Search drinks &amp; spirits…" autocomplete="off">
+        </div>
+        <button class="btn btn-add" id="addLoungeBtn" aria-label="Add new lounge item">
+          + Add Item
+        </button>
+      </div>
+      <div class="table-wrap">
+        <table class="inventory-table" id="loungeTable">
+          <thead>
+            <tr>
+              <th scope="col">Item Name</th>
+              <th scope="col">Category</th>
+              <th scope="col" class="col-qty">Qty / Pieces</th>
+              <th scope="col" class="col-unit">Unit</th>
+              <th scope="col" class="col-price">Price</th>
+              <th scope="col" class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="loungeBody">
+            <tr class="skeleton-row">
+              <td colspan="6"><span class="skeleton"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       ADD / EDIT MODAL  (native <dialog>)
+  ============================================================ -->
+  <dialog class="item-dialog" id="itemDialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="dialog-inner">
+      <header class="dialog-header">
+        <h2 class="dialog-title" id="dialogTitle">Add Item</h2>
+        <button class="dialog-close" id="dialogClose" aria-label="Close dialog" type="button">✕</button>
+      </header>
+
+      <form id="itemForm" class="item-form" novalidate>
+        <input type="hidden" id="itemId" name="id">
+        <input type="hidden" id="itemSection" name="section">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldName">Item Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="fieldName" name="name" required
+                   autocomplete="off" placeholder="e.g. Firewood Jollof Rice">
+            <span class="field-error" id="errorName" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="fieldCategory">Category <span aria-hidden="true">*</span></label>
+            <input type="text" id="fieldCategory" name="category" required
+                   autocomplete="off" placeholder="e.g. Main Course">
+            <span class="field-error" id="errorCategory" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldQty">Qty / Pieces <span aria-hidden="true">*</span></label>
+            <input type="number" id="fieldQty" name="quantity" required
+                   min="0" step="1" inputmode="numeric" placeholder="0">
+            <span class="field-error" id="errorQty" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="fieldUnit">Unit</label>
+            <select id="fieldUnit" name="unit">
+              <option value="pieces">Pieces</option>
+              <option value="bottles">Bottles</option>
+              <option value="portions">Portions</option>
+              <option value="litres">Litres</option>
+              <option value="kg">Kg</option>
+              <option value="cans">Cans</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fieldPrice">Price (₦)</label>
+            <input type="number" id="fieldPrice" name="price"
+                   min="0" step="0.01" inputmode="decimal" placeholder="0.00">
+          </div>
+          <div class="form-group">
+            <label for="fieldNotes">Notes</label>
+            <input type="text" id="fieldNotes" name="notes"
+                   autocomplete="off" placeholder="Optional note…">
+          </div>
+        </div>
+
+        <footer class="dialog-footer">
+          <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-save" id="saveBtn">Save Item</button>
+        </footer>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ============================================================
+       DELETE CONFIRM DIALOG
+  ============================================================ -->
+  <dialog class="confirm-dialog" id="confirmDialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <div class="dialog-inner">
+      <h2 class="dialog-title" id="confirmTitle">Remove Item?</h2>
+      <p class="confirm-text" id="confirmText">Are you sure you want to remove this item from inventory?</p>
+      <footer class="dialog-footer">
+        <button type="button" class="btn btn-cancel" id="confirmCancel">Keep It</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete">Yes, Remove</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Credentials (gitignored — never committed) -->
+  <script src="env.js"></script>
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="admin.js" type="module"></script>
+</body>
+</html>

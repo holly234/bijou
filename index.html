@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>BIJOU | Restaurant &amp; Lounge Menu Portal</title>
+  <meta name="description" content="Welcome to Bijou Lounge & Restaurant. Choose your dining or lounge cocktail menu to begin your experience.">
+  <meta name="theme-color" content="#121212">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing-page">
+
+  <!-- Ambient Low-Glare Background: Bijou Venue Flyer -->
+  <div class="ambient-backdrop" aria-hidden="true">
+    <img src="assets/flyer_bg.jpg?v=2" alt="" class="ambient-image" id="ambientBgImage" onerror="this.style.display='none'">
+    <div class="ambient-vignette"></div>
+  </div>
+
+  <!-- Main Mobile-First Application Container (Strict Single Screen) -->
+  <main class="app-screen" id="mainScreen" role="main">
+
+    <!-- 1. TOP SECTION (HERO & LOGO) -->
+    <header class="hero-section" id="heroHeader">
+      
+      <!-- Space reserved for background flyer logo -->
+      <div class="logo-spacer" id="logoSpacer" aria-label="Bijou Lounge and Restaurant"></div>
+
+      <!-- Short, Elegant Sub-Headline -->
+      <!-- <p class="hero-subheadline" id="heroSubheadline">
+        Welcome to <strong>Bijou</strong>. Choose your menu to begin.
+      </p> -->
+
+    </header>
+
+    <!-- 2. CENTER SECTION (THE CORE CALL-TO-ACTION BUTTONS) -->
+    <nav class="cta-section" id="ctaSection" aria-label="Menu Selection Navigation">
+
+      <!-- Button 1: RESTAURANT MENU (Direct Link to Separate Restaurant Page) -->
+      <a 
+        href="restaurant.html" 
+        class="menu-btn menu-btn-solid-gold" 
+        id="btnRestaurantMenu"
+        aria-label="Open Restaurant Menu Page">
+        
+        <div class="btn-shimmer" aria-hidden="true"></div>
+
+        <div class="btn-left-cluster">
+          <!-- Subtle Fork & Knife Icon -->
+          <div class="btn-icon-wrapper" aria-hidden="true">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <!-- Fork -->
+              <path d="M6 3v6a3 3 0 0 0 6 0V3" />
+              <path d="M9 3v18" />
+              <!-- Knife -->
+              <path d="M18 3c0 7-3 8-3 10v8h2v-8c0-2 2-3 2-10a1 1 0 0 0-1-1z" />
+            </svg>
+          </div>
+
+          <div class="btn-text-block">
+            <span class="btn-primary-title">RESTAURANT MENU</span>
+            <span class="btn-sub-caption">Gourmet Dining &bull; Platters &bull; Bistro</span>
+          </div>
+        </div>
+
+        <div class="btn-chevron-indicator" aria-hidden="true">
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Button 2: LOUNGE & DRINKS (Direct Link to Separate Lounge Page) -->
+      <a 
+        href="lounge.html" 
+        class="menu-btn menu-btn-gold-border" 
+        id="btnLoungeMenu"
+        aria-label="Open Lounge and Drinks Menu Page">
+        
+        <div class="btn-shimmer" aria-hidden="true"></div>
+
+        <div class="btn-left-cluster">
+          <!-- Subtle Cocktail Glass Icon -->
+          <div class="btn-icon-wrapper" aria-hidden="true">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <!-- Cocktail Coupe / Martini Glass with Olive/Garnish -->
+              <path d="M4 5h16l-8 9-8-9z" />
+              <line x1="12" y1="14" x2="12" y2="21" />
+              <line x1="7" y1="21" x2="17" y2="21" />
+              <circle cx="16" cy="3.5" r="1.5" fill="currentColor" />
+            </svg>
+          </div>
+
+          <div class="btn-text-block">
+            <span class="btn-primary-title">LOUNGE &amp; DRINKS</span>
+            <span class="btn-sub-caption">Fine Spirits &bull; Cocktails &bull; VIP Sips</span>
+          </div>
+        </div>
+
+        <div class="btn-chevron-indicator" aria-hidden="true">
+          <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+    </nav>
+
+    <!-- 3. BOTTOM SECTION (FOOTER) -->
+    <footer class="footer-section" id="footerSection" role="contentinfo">
+      <p class="server-assist-text">
+        Ask your server for assistance.
+      </p>
+      <span class="footer-meta-brand">Good Food &bull; Good Mood &bull; Great Memories</span>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
