@@ -565,3 +565,66 @@ dialog[open] {
   .inventory-table td { padding: 0.6rem 0.625rem; font-size: 0.8rem; }
   .col-price, .col-unit { display: none; }
 }
+
+/* ── Availability Toggle ─────────────────────────────────────────── */
+.col-avail { width: 100px; text-align: center; }
+
+.avail-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hide the native checkbox visually but keep it accessible */
+.avail-checkbox {
+  position: absolute;
+  clip-path: inset(50%);
+  width: 1px; height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.avail-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid transparent;
+}
+
+.avail-yes {
+  background: rgba(39, 174, 96, 0.12);
+  color: #6fcf97;
+  border-color: rgba(39, 174, 96, 0.3);
+}
+
+.avail-no {
+  background: rgba(192, 57, 43, 0.1);
+  color: #e57373;
+  border-color: rgba(192, 57, 43, 0.3);
+}
+
+.avail-toggle:hover .avail-pill {
+  filter: brightness(1.15);
+}
+
+/* Dim the whole row when unavailable */
+.row-unavailable td {
+  opacity: 0.45;
+}
+.row-unavailable .col-avail td,
+.row-unavailable td.col-avail {
+  opacity: 1; /* keep the toggle itself visible */
+}
+
+/* Label hint style */
+.label-hint {
+  font-weight: 400;
+  color: var(--text-muted, #5a5040);
+  font-size: 0.72em;
+}

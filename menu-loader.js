@@ -129,6 +129,7 @@
         .from('inventory')
         .select('name, category, price, notes')
         .eq('section', section)
+        .eq('available', true)
         .order('category', { ascending: true })
         .order('name',     { ascending: true });
 

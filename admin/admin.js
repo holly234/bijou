@@ -32,22 +32,20 @@ const fieldId       = document.getElementById('itemId');
 const fieldSection  = document.getElementById('itemSection');
 const fieldName     = document.getElementById('fieldName');
 const fieldCategory = document.getElementById('fieldCategory');
-const fieldQty      = document.getElementById('fieldQty');
-const fieldUnit     = document.getElementById('fieldUnit');
 const fieldPrice    = document.getElementById('fieldPrice');
 const fieldNotes    = document.getElementById('fieldNotes');
 
 // Inventory panels
 const panels = {
   restaurant: {
-    body:      document.getElementById('restaurantBody'),
-    search:    document.getElementById('searchRestaurant'),
-    addBtn:    document.getElementById('addRestaurantBtn'),
+    body:   document.getElementById('restaurantBody'),
+    search: document.getElementById('searchRestaurant'),
+    addBtn: document.getElementById('addRestaurantBtn'),
   },
   lounge: {
-    body:      document.getElementById('loungeBody'),
-    search:    document.getElementById('searchLounge'),
-    addBtn:    document.getElementById('addLoungeBtn'),
+    body:   document.getElementById('loungeBody'),
+    search: document.getElementById('searchLounge'),
+    addBtn: document.getElementById('addLoungeBtn'),
   },
 };
 
@@ -72,11 +70,13 @@ function setStatus(connected) {
   statusText.textContent = connected ? 'Connected' : 'Offline';
 }
 
-// ─── Utility: Quantity colour class ─────────────────────────────
-function qtyClass(n) {
-  if (n <= 0)  return 'low';
-  if (n <= 5)  return 'medium';
-  return 'ok';
+// ─── Escape HTML ─────────────────────────────────────────────────
+function escHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 // ─── Render table for a section ─────────────────────────────────
@@ -92,28 +92,31 @@ function renderTable(section, query = '') {
   if (items.length === 0) {
     body.innerHTML = `
       <tr class="empty-row">
-        <td colspan="6">${q ? 'No items match your search.' : 'No items yet — add your first item!'}</td>
+        <td colspan="5">${q ? 'No items match your search.' : 'No items yet — add your first item!'}</td>
       </tr>`;
     return;
   }
 
   body.innerHTML = items.map(item => {
-    const qc = qtyClass(item.quantity);
+    const isAvailable = item.available !== false;
     const price = item.price != null
       ? `₦${Number(item.price).toLocaleString('en-NG', { minimumFractionDigits: 0 })}`
       : '—';
     return `
-    <tr data-id="${item.id}">
+    <tr data-id="${item.id}" class="${isAvailable ? '' : 'row-unavailable'}">
       <td>${escHtml(item.name)}</td>
       <td><span class="chip">${escHtml(item.category || '—')}</span></td>
-      <td class="col-qty">
-        <div class="qty-cell">
-          <button class="btn-qty" aria-label="Decrease quantity" data-action="dec" data-id="${item.id}">−</button>
-          <span class="qty-value ${qc}" aria-label="${item.quantity} ${item.unit}">${item.quantity}</span>
-          <button class="btn-qty" aria-label="Increase quantity" data-action="inc" data-id="${item.id}">+</button>
-        </div>
+      <td class="col-avail">
+        <label class="avail-toggle" title="${isAvailable ? 'Click to mark unavailable' : 'Click to mark available'}">
+          <input type="checkbox" class="avail-checkbox"
+                 data-id="${item.id}" data-section="${section}"
+                 ${isAvailable ? 'checked' : ''}
+                 aria-label="Toggle availability for ${escHtml(item.name)}">
+          <span class="avail-pill ${isAvailable ? 'avail-yes' : 'avail-no'}">
+            ${isAvailable ? '✓ Yes' : '✕ No'}
+          </span>
+        </label>
       </td>
-      <td class="col-unit">${escHtml(item.unit || '—')}</td>
       <td class="col-price">${price}</td>
       <td class="col-actions">
         <div class="action-cell">
@@ -123,14 +126,6 @@ function renderTable(section, query = '') {
       </td>
     </tr>`;
   }).join('');
-}
-
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 // ─── Fetch all items for a section ──────────────────────────────
@@ -145,7 +140,7 @@ async function fetchSection(section) {
   if (error) {
     console.error(`[Bijou Admin] fetch ${section}:`, error);
     setStatus(false);
-    panels[section].body.innerHTML = `<tr class="empty-row"><td colspan="6">⚠️ Failed to load items.</td></tr>`;
+    panels[section].body.innerHTML = `<tr class="empty-row"><td colspan="5">⚠️ Failed to load items.</td></tr>`;
     return;
   }
 
@@ -154,25 +149,25 @@ async function fetchSection(section) {
   renderTable(section);
 }
 
-// ─── Inline qty change (quick +/− buttons) ──────────────────────
-async function changeQty(id, delta, section) {
+// ─── Toggle availability (instant, no save button needed) ────────
+async function toggleAvailable(id, section, newValue) {
+  // Optimistic UI
   const item = cache[section].find(i => i.id === id);
   if (!item) return;
-  const newQty = Math.max(0, item.quantity + delta);
-
-  // Optimistic UI
-  item.quantity = newQty;
+  item.available = newValue;
   renderTable(section, panels[section].search.value);
 
   const { error } = await db
     .from('inventory')
-    .update({ quantity: newQty, updated_at: new Date().toISOString() })
+    .update({ available: newValue, updated_at: new Date().toISOString() })
     .eq('id', id);
 
   if (error) {
-    showToast('Failed to update quantity.', 'error');
-    item.quantity -= delta; // revert
+    showToast('Failed to update availability.', 'error');
+    item.available = !newValue; // revert
     renderTable(section, panels[section].search.value);
+  } else {
+    showToast(newValue ? 'Item is now available.' : 'Item hidden from menu.');
   }
 }
 
@@ -196,8 +191,6 @@ function openEditDialog(id, section) {
   fieldSection.value = section;
   fieldName.value    = item.name;
   fieldCategory.value= item.category || '';
-  fieldQty.value     = item.quantity;
-  fieldUnit.value    = item.unit || 'pieces';
   fieldPrice.value   = item.price ?? '';
   fieldNotes.value   = item.notes || '';
   dialogTitle.textContent = 'Edit Item';
@@ -210,7 +203,6 @@ function openEditDialog(id, section) {
 function validateForm() {
   let valid = true;
   clearFormErrors();
-
   if (!fieldName.value.trim()) {
     document.getElementById('errorName').textContent = 'Name is required.';
     fieldName.classList.add('invalid');
@@ -221,21 +213,14 @@ function validateForm() {
     fieldCategory.classList.add('invalid');
     valid = false;
   }
-  if (fieldQty.value === '' || isNaN(Number(fieldQty.value))) {
-    document.getElementById('errorQty').textContent = 'Enter a valid quantity.';
-    fieldQty.classList.add('invalid');
-    valid = false;
-  }
   return valid;
 }
 
 function clearFormErrors() {
   document.getElementById('errorName').textContent = '';
   document.getElementById('errorCategory').textContent = '';
-  document.getElementById('errorQty').textContent = '';
   fieldName.classList.remove('invalid');
   fieldCategory.classList.remove('invalid');
-  fieldQty.classList.remove('invalid');
 }
 
 // ─── Save (create or update) ─────────────────────────────────────
@@ -246,13 +231,11 @@ itemForm.addEventListener('submit', async (e) => {
   saveBtn.disabled = true;
   saveBtn.textContent = 'Saving…';
 
-  const section  = fieldSection.value;
-  const id       = fieldId.value;
-  const payload  = {
+  const section = fieldSection.value;
+  const id      = fieldId.value;
+  const payload = {
     name:       fieldName.value.trim(),
     category:   fieldCategory.value.trim(),
-    quantity:   parseInt(fieldQty.value, 10),
-    unit:       fieldUnit.value,
     price:      fieldPrice.value !== '' ? parseFloat(fieldPrice.value) : null,
     notes:      fieldNotes.value.trim() || null,
     section,
@@ -261,10 +244,9 @@ itemForm.addEventListener('submit', async (e) => {
 
   let error;
   if (id) {
-    // UPDATE
     ({ error } = await db.from('inventory').update(payload).eq('id', id));
   } else {
-    // INSERT
+    payload.available  = true;
     payload.created_at = new Date().toISOString();
     ({ error } = await db.from('inventory').insert(payload));
   }
@@ -306,10 +288,7 @@ confirmDelete.addEventListener('click', async () => {
   confirmDialog.close();
   pendingDeleteId = null;
 
-  if (error) {
-    showToast('Delete failed.', 'error');
-    return;
-  }
+  if (error) { showToast('Delete failed.', 'error'); return; }
   showToast('Item removed.');
   await fetchSection(section);
 });
@@ -319,28 +298,21 @@ confirmDelete.addEventListener('click', async () => {
   btn.addEventListener('click', () => itemDialog.close());
 });
 confirmCancel.addEventListener('click', () => confirmDialog.close());
-
-// Close on backdrop click
 [itemDialog, confirmDialog].forEach(dlg => {
-  dlg.addEventListener('click', (e) => {
-    if (e.target === dlg) dlg.close();
-  });
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 });
 
-// ─── Tab switching ────────────────────────────────────────────────
+// ─── Tab switching ─────────────────────────────────────────────
 let activeSection = 'restaurant';
-
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const section = btn.dataset.section;
     if (section === activeSection) return;
     activeSection = section;
-
     document.querySelectorAll('.tab-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.section === section);
       b.setAttribute('aria-selected', b.dataset.section === section ? 'true' : 'false');
     });
-
     document.querySelectorAll('.tab-panel').forEach(panel => {
       const isActive = panel.id === `panel-${section}`;
       panel.classList.toggle('active', isActive);
@@ -353,49 +325,44 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 panels.restaurant.addBtn.addEventListener('click', () => openAddDialog('restaurant'));
 panels.lounge.addBtn.addEventListener('click',    () => openAddDialog('lounge'));
 
-// ─── Table action delegation (edit / delete / qty) ───────────────
+// ─── Table action delegation (edit / delete / availability) ──────
 document.querySelectorAll('.inventory-table').forEach(table => {
+  const section = table.id === 'restaurantTable' ? 'restaurant' : 'lounge';
+
+  // Edit / Delete buttons
   table.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
     const { action, id } = btn.dataset;
-    const section = table.id === 'restaurantTable' ? 'restaurant' : 'lounge';
-
-    if (action === 'inc')    changeQty(id, +1, section);
-    if (action === 'dec')    changeQty(id, -1, section);
     if (action === 'edit')   openEditDialog(id, section);
     if (action === 'delete') openDeleteConfirm(id, section);
+  });
+
+  // Availability checkboxes
+  table.addEventListener('change', (e) => {
+    const checkbox = e.target.closest('.avail-checkbox');
+    if (!checkbox) return;
+    toggleAvailable(checkbox.dataset.id, checkbox.dataset.section, checkbox.checked);
   });
 });
 
 // ─── Live search ─────────────────────────────────────────────────
-panels.restaurant.search.addEventListener('input', (e) => {
-  renderTable('restaurant', e.target.value);
-});
-panels.lounge.search.addEventListener('input', (e) => {
-  renderTable('lounge', e.target.value);
-});
+panels.restaurant.search.addEventListener('input', (e) => renderTable('restaurant', e.target.value));
+panels.lounge.search.addEventListener('input',    (e) => renderTable('lounge',     e.target.value));
 
-// ─── Real-time subscription (optional, per section) ──────────────
+// ─── Real-time subscriptions ──────────────────────────────────────
 function subscribeRealtime(section) {
   db.channel(`inventory:${section}`)
     .on('postgres_changes', {
-      event: '*',
-      schema: 'public',
-      table: 'inventory',
+      event: '*', schema: 'public', table: 'inventory',
       filter: `section=eq.${section}`,
-    }, () => {
-      fetchSection(section); // re-fetch on any remote change
-    })
+    }, () => fetchSection(section))
     .subscribe();
 }
 
 // ─── Bootstrap ───────────────────────────────────────────────────
 async function init() {
-  await Promise.all([
-    fetchSection('restaurant'),
-    fetchSection('lounge'),
-  ]);
+  await Promise.all([fetchSection('restaurant'), fetchSection('lounge')]);
   subscribeRealtime('restaurant');
   subscribeRealtime('lounge');
 }
