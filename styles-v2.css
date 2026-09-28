@@ -115,11 +115,11 @@ body[data-section="lounge"] .v2-hero {
 /* Floating Circular Logo Badge */
 .v2-logo-badge {
   position: absolute;
-  bottom: -32px;
+  bottom: -28px;
   left: 50%;
   transform: translateX(-50%);
-  width: 72px;
-  height: 72px;
+  width: 66px;
+  height: 66px;
   background: #ffffff;
   border-radius: 50%;
   display: flex;
@@ -146,7 +146,7 @@ body[data-section="lounge"] .v2-hero {
   border-radius: var(--radius-card) var(--radius-card) 0 0;
   margin-top: -24px;
   z-index: 6;
-  padding: 2.5rem 1.15rem 3rem;
+  padding: 3.4rem 1.15rem 3rem;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
@@ -155,14 +155,15 @@ body[data-section="lounge"] .v2-hero {
 /* Header inside card */
 .v2-card-header {
   text-align: center;
+  margin-top: 0.5rem;
   margin-bottom: 1.25rem;
 }
 
 .v2-card-title {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--text-main);
   margin-bottom: 0.25rem;
 }
