@@ -1,6 +1,6 @@
 /**
  * BIJOU – Card/Banner Mobile Menu (V2 Prototype)
- * Connects to Supabase, maps categories to rich food photography banners,
+ * Connects to Supabase, maps categories to authentic food photography banners,
  * and enables smooth category navigation + live instant search.
  */
 
@@ -11,45 +11,49 @@
   const section = document.body.dataset.section || 'restaurant';
 
   // DOM Elements
+  const cardHeader        = document.getElementById('v2CardHeader');
+  const searchWrap        = document.getElementById('v2SearchWrap');
   const searchInput       = document.getElementById('v2SearchInput');
   const categoryListView  = document.getElementById('v2CategoryList');
   const detailView        = document.getElementById('v2DetailView');
   const searchResultsView = document.getElementById('v2SearchResults');
   const backBtn           = document.getElementById('v2BackBtn');
+  const detailBannerImg   = document.getElementById('v2DetailBannerImg');
   const currentCatTitle   = document.getElementById('v2CurrentCatTitle');
+  const currentCatCount   = document.getElementById('v2CurrentCatCount');
   const detailItemsList   = document.getElementById('v2DetailItemsList');
   const searchItemsList   = document.getElementById('v2SearchItemsList');
   const searchMeta        = document.getElementById('v2SearchMeta');
 
-  // Curated category banner photos
+  // Curated category banner photos (Authentic and food-accurate)
   const CATEGORY_IMAGES = {
-    // Restaurant
-    'Charcoal Grill & BBQ': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80',
-    'Rice & Porridge':      'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80',
-    'Ofada Dishes':         'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=80',
-    'Swallow Combos':       'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&auto=format&fit=crop&q=80',
-    'Swallow':              'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&auto=format&fit=crop&q=80',
+    // ── Restaurant ──
+    'Charcoal Grill & BBQ': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop&q=80',
+    'Rice & Porridge':      'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80',
+    'Ofada Dishes':         'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&auto=format&fit=crop&q=80',
+    'Swallow Combos':       'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
+    'Swallow':              'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
     'Beans':                'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800&auto=format&fit=crop&q=80',
     'Pasta & Noodles':      'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&auto=format&fit=crop&q=80',
     'Pasta':                'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&auto=format&fit=crop&q=80',
     'Pepper Soups':         'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&auto=format&fit=crop&q=80',
-    'Signature Platters':   'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop&q=80',
-    '1911 Special Platter': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop&q=80',
+    'Signature Platters':   'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80',
+    '1911 Special Platter': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80',
     'Salads':               'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop&q=80',
-    'Gourmet Soups':        'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
-    'Soups & Stews':        'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
-    'Soup Varieties':       'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
+    'Gourmet Soups':        'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
+    'Soups & Stews':        'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
+    'Soup Varieties':       'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
     'Soups by the Litre':   'https://images.unsplash.com/photo-1505253758473-96b3d5eb926f?w=800&auto=format&fit=crop&q=80',
-    'Sauces & Stews':       'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
-    'Sauces':               'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
-    'Sauce':                'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
+    'Sauces & Stews':       'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&auto=format&fit=crop&q=80',
+    'Sauces':               'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&auto=format&fit=crop&q=80',
+    'Sauce':                'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&auto=format&fit=crop&q=80',
     'Seafood Special':      'https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=800&auto=format&fit=crop&q=80',
-    'Proteins':             'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=800&auto=format&fit=crop&q=80',
+    'Proteins':             'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&auto=format&fit=crop&q=80',
     'Extra Sides':          'https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80',
     'Extra':                'https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80',
-    'Swallows Extra':       'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=800&auto=format&fit=crop&q=80',
+    'Swallows Extra':       'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&auto=format&fit=crop&q=80',
 
-    // Lounge
+    // ── Lounge ──
     'Soft Drinks & Yoghurt':'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&auto=format&fit=crop&q=80',
     'Cognac Drink':         'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&auto=format&fit=crop&q=80',
     'Juice':                'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&auto=format&fit=crop&q=80',
@@ -68,7 +72,7 @@
     'Whisky Drinks':        'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&auto=format&fit=crop&q=80'
   };
 
-  const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80';
+  const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80';
 
   let rawItems = [];
   let categorized = {};
@@ -83,7 +87,7 @@
   }
 
   function formatPrice(n) {
-    if (n == null) return '';
+    if (n == null || Number(n) === 0) return null;
     return '₦' + Number(n).toLocaleString('en-NG', { minimumFractionDigits: 0 });
   }
 
@@ -125,28 +129,48 @@
   // Open Category Detail View
   function openCategory(cat) {
     const items = categorized[cat] || [];
-    currentCatTitle.textContent = cat;
+    const img = CATEGORY_IMAGES[cat] || DEFAULT_IMAGE;
 
-    detailItemsList.innerHTML = items.map(item => `
-      <div class="v2-item-card">
-        <div class="v2-item-top">
-          <span class="v2-item-name">${esc(item.name)}</span>
-          <div class="v2-item-dots"></div>
-          <span class="v2-item-price">${esc(formatPrice(item.price))}</span>
+    // Set banner image, title & count
+    if (detailBannerImg) detailBannerImg.src = img;
+    if (currentCatTitle) currentCatTitle.textContent = cat;
+    if (currentCatCount) currentCatCount.textContent = `${items.length} Item${items.length !== 1 ? 's' : ''}`;
+
+    // Render items with clean price handling
+    detailItemsList.innerHTML = items.map(item => {
+      const formattedPrice = formatPrice(item.price);
+      const priceElement = formattedPrice
+        ? `<div class="v2-item-dots"></div><span class="v2-item-price">${esc(formattedPrice)}</span>`
+        : `<span class="v2-item-price-ask">Price on request</span>`;
+
+      return `
+        <div class="v2-item-card">
+          <div class="v2-item-top">
+            <span class="v2-item-name">${esc(item.name)}</span>
+            ${priceElement}
+          </div>
+          ${item.notes ? `<p class="v2-item-desc">${esc(item.notes)}</p>` : ''}
         </div>
-        ${item.notes ? `<p class="v2-item-desc">${esc(item.notes)}</p>` : ''}
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
+    // Toggle views cleanly
+    if (cardHeader) cardHeader.style.display = 'none';
+    if (searchWrap) searchWrap.style.display = 'none';
     categoryListView.style.display = 'none';
     searchResultsView.classList.remove('active');
     detailView.classList.add('active');
-    window.scrollTo({ top: 120, behavior: 'smooth' });
+
+    // Smooth scroll to top of card
+    const cardSheet = document.querySelector('.v2-main-card');
+    if (cardSheet) cardSheet.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // Return to Category List
   function closeCategory() {
     detailView.classList.remove('active');
+    if (cardHeader) cardHeader.style.display = 'block';
+    if (searchWrap) searchWrap.style.display = 'block';
     categoryListView.style.display = 'flex';
   }
 
@@ -157,6 +181,7 @@
       searchResultsView.classList.remove('active');
       if (!detailView.classList.contains('active')) {
         categoryListView.style.display = 'flex';
+        if (cardHeader) cardHeader.style.display = 'block';
       }
       return;
     }
@@ -180,17 +205,23 @@
       return;
     }
 
-    searchItemsList.innerHTML = matches.map(item => `
-      <div class="v2-item-card">
-        <div class="v2-item-top">
-          <span class="v2-item-name">${esc(item.name)}</span>
-          <div class="v2-item-dots"></div>
-          <span class="v2-item-price">${esc(formatPrice(item.price))}</span>
+    searchItemsList.innerHTML = matches.map(item => {
+      const formattedPrice = formatPrice(item.price);
+      const priceElement = formattedPrice
+        ? `<div class="v2-item-dots"></div><span class="v2-item-price">${esc(formattedPrice)}</span>`
+        : `<span class="v2-item-price-ask">Price on request</span>`;
+
+      return `
+        <div class="v2-item-card">
+          <div class="v2-item-top">
+            <span class="v2-item-name">${esc(item.name)}</span>
+            ${priceElement}
+          </div>
+          ${item.notes ? `<p class="v2-item-desc">${esc(item.notes)}</p>` : ''}
+          <span style="font-size:0.72rem;color:var(--gold-dark);font-weight:600;margin-top:2px;">Category: ${esc(item.category || 'General')}</span>
         </div>
-        ${item.notes ? `<p class="v2-item-desc">${esc(item.notes)}</p>` : ''}
-        <span style="font-size:0.72rem;color:var(--gold-dark);font-weight:600;">Category: ${esc(item.category || 'General')}</span>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   // Event Listeners

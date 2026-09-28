@@ -37,14 +37,15 @@
     </header>
 
     <!-- Main Card Sheet Container -->
+    <!-- Main Card Sheet Container -->
     <main class="v2-main-card">
-      <div class="v2-card-header">
+      <div id="v2CardHeader" class="v2-card-header">
         <h1 class="v2-card-title">BIJOU LOUNGE &amp; BAR</h1>
         <p class="v2-card-subtitle">Select a category or search for drinks below</p>
       </div>
 
       <!-- Search Input -->
-      <div class="v2-search-wrap">
+      <div id="v2SearchWrap" class="v2-search-wrap">
         <input type="search" id="v2SearchInput" class="v2-search-input" placeholder="Search cognacs, cocktails, beers, wines…">
         <svg class="v2-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <circle cx="11" cy="11" r="8"></circle>
@@ -63,13 +64,21 @@
       <!-- 2. Category Detail / Drink Items View -->
       <div id="v2DetailView" class="v2-detail-view">
         <div class="v2-detail-header">
-          <button type="button" id="v2BackBtn" class="v2-back-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span>Back to Categories</span>
-          </button>
-          <span id="v2CurrentCatTitle" class="v2-detail-cat-title"></span>
+          <div class="v2-back-btn-row">
+            <button type="button" id="v2BackBtn" class="v2-back-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              <span>All Categories</span>
+            </button>
+          </div>
+          <div id="v2DetailBanner" class="v2-detail-cat-banner">
+            <img id="v2DetailBannerImg" src="" alt="" class="v2-category-bg">
+            <div class="v2-category-overlay">
+              <span id="v2CurrentCatTitle" class="v2-category-name"></span>
+              <span id="v2CurrentCatCount" class="v2-category-count"></span>
+            </div>
+          </div>
         </div>
         <div id="v2DetailItemsList" class="v2-detail-items-list"></div>
       </div>
