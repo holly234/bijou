@@ -134,8 +134,8 @@ async function fetchSection(section) {
     .from('inventory')
     .select('*')
     .eq('section', section)
-    .order('category', { ascending: true })
-    .order('name', { ascending: true });
+    .order('sort_order', { ascending: true })
+    .order('name',       { ascending: true });
 
   if (error) {
     console.error(`[Bijou Admin] fetch ${section}:`, error);

@@ -127,11 +127,11 @@
 
       const { data, error } = await db
         .from('inventory')
-        .select('name, category, price, notes')
+        .select('name, category, price, notes, sort_order')
         .eq('section', section)
         .eq('available', true)
-        .order('category', { ascending: true })
-        .order('name',     { ascending: true });
+        .order('sort_order', { ascending: true })
+        .order('name',       { ascending: true });
 
       if (error) throw error;
       if (!data || data.length === 0) {
