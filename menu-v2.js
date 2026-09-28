@@ -28,12 +28,12 @@
   // Curated category banner photos (Authentic and food-accurate local assets)
   const CATEGORY_IMAGES = {
     // ── Restaurant ──
-    'Charcoal Grill & BBQ': 'assets/thumbs/bbq_charcoal_chicken.jpg',
+    'Charcoal Grill & BBQ': 'assets/thumbs/platter.jpg',
     'Rice & Porridge':      'assets/categories/jollof.jpg',
     'Ofada Dishes':         'assets/categories/ofada.jpg',
     'Swallow Combos':       'assets/categories/swallow.jpg',
     'Swallow':              'assets/categories/swallow.jpg',
-    'Beans':                'assets/thumbs/beans_stew.jpg',
+    'Beans':                'assets/categories/beans.jpg',
     'Pasta & Noodles':      'assets/thumbs/pasta.jpg',
     'Pasta':                'assets/thumbs/pasta.jpg',
     'Pepper Soups':         'assets/thumbs/peppersoup_fish.jpg',
@@ -49,26 +49,26 @@
     'Sauce':                'assets/thumbs/red_stew.jpg',
     'Seafood Special':      'assets/thumbs/cajun_boil.jpg',
     'Proteins':             'assets/thumbs/proteins.jpg',
-    'Extra Sides':          'assets/thumbs/fried_plantains.jpg',
-    'Extra':                'assets/thumbs/fried_plantains.jpg',
+    'Extra Sides':          'assets/thumbs/sides.jpg',
+    'Extra':                'assets/thumbs/sides.jpg',
     'Swallows Extra':       'assets/categories/swallow.jpg',
 
     // ── Lounge ──
     'Soft Drinks & Yoghurt':'assets/thumbs/soda.jpg',
-    'Cognac Drink':         'assets/thumbs/cognac_snifter.jpg',
+    'Cognac Drink':         'assets/thumbs/whisky_glass.jpg',
     'Juice':                'assets/thumbs/juice.jpg',
-    'Can Drink':            'assets/thumbs/cans.jpg',
+    'Can Drink':            'assets/thumbs/soda.jpg',
     'Beer':                 'assets/thumbs/beer.jpg',
-    'Gin':                  'assets/thumbs/gin_tonic.jpg',
-    'Wine':                 'assets/thumbs/wine.jpg',
-    'Vodka':                'assets/thumbs/vodka.jpg',
+    'Gin':                  'assets/thumbs/bitters.jpg',
+    'Wine':                 'assets/thumbs/champagne_gold.jpg',
+    'Vodka':                'assets/thumbs/test_tequila.jpg',
     'Champagne':            'assets/thumbs/test_champagne.jpg',
     'Tequila':              'assets/thumbs/test_tequila.jpg',
     'Mocktails':            'assets/thumbs/mocktail.jpg',
     'Cocktails':            'assets/thumbs/cocktail.jpg',
-    'Bitters Drink':        'assets/thumbs/bitters.jpg',
-    'Sparkling Wine':       'assets/thumbs/sparkling.jpg',
-    'Energy Drinks':        'assets/thumbs/energy.jpg',
+    'Bitters Drink':        'assets/thumbs/vodka.jpg',
+    'Sparkling Wine':       'assets/thumbs/test_champagne.jpg',
+    'Energy Drinks':        'assets/thumbs/monster_energy.jpg',
     'Whisky Drinks':        'assets/thumbs/whisky_glass.jpg'
   };
 
