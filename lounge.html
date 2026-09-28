@@ -3,52 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>BIJOU | Lounge &amp; Drinks Menu</title>
-  <meta name="description" content="Bijou Lounge &amp; Drinks menu - prestige cognacs, fine whiskies, craft cocktails, VIP champagnes, and bottle service.">
-  <meta name="theme-color" content="#0b0c10">
+  <title>BIJOU Lounge – Drinks Menu</title>
+  <meta name="description" content="Bijou Lounge modern card-based digital drinks menu.">
+  <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-v2.css">
 </head>
-<body class="menu-page" data-section="lounge">
+<body class="v2-body" data-section="lounge">
 
-  <nav class="page-topbar" aria-label="Lounge Page Navigation">
-    <a href="index.html" class="topbar-back-btn" title="Back to Portal Selection">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-      <span>Back</span>
-    </a>
-    <div class="topbar-center-brand">
-      <img src="assets/bijou_logo.png" alt="Bijou" class="topbar-logo-img">
-    </div>
-    <div class="topbar-actions">
-      <a href="restaurant.html" class="topbar-switch-btn" title="Go to Restaurant Menu">
-        <span>🍽️ Food</span>
-      </a>
-    </div>
-  </nav>
+  <div class="v2-app-container">
 
-  <header class="menu-page-header">
-    <h1 class="menu-page-title">LOUNGE &amp; DRINKS</h1>
-    <p class="menu-page-subtitle">Prestige Spirits &bull; Craft Cocktails &bull; VIP Service</p>
-  </header>
+    <!-- Top Hero Banner with Ambiance -->
+    <header class="v2-hero">
+      <div class="v2-hero-overlay"></div>
+      <div class="v2-top-bar">
+        <a href="index.html" class="v2-nav-btn" title="Back to Portal">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Portal</span>
+        </a>
+        <a href="restaurant.html" class="v2-nav-btn v2-switch-btn" title="Switch to Food Menu">
+          <span>🍽️ Food Menu</span>
+        </a>
+      </div>
 
-  <!-- Category Tabs — built dynamically by menu-loader.js -->
-  <div class="category-tabs-container">
-    <div class="category-tabs-track" id="categoryTabsTrack"></div>
+      <!-- Overlapping Circular Logo -->
+      <div class="v2-logo-badge">
+        <img src="assets/bijou_logo_transparent.png" alt="Bijou Logo">
+      </div>
+    </header>
+
+    <!-- Main Card Sheet Container -->
+    <main class="v2-main-card">
+      <div id="v2CardHeader" class="v2-card-header">
+        <h1 class="v2-card-title">BIJOU LOUNGE &amp; BAR</h1>
+        <p class="v2-card-subtitle">Select a category or search for drinks below</p>
+      </div>
+
+      <!-- Search Input -->
+      <div id="v2SearchWrap" class="v2-search-wrap">
+        <input type="search" id="v2SearchInput" class="v2-search-input" placeholder="Search cognacs, cocktails, beers, wines…">
+        <svg class="v2-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+
+      <!-- 1. Category Banners List -->
+      <div id="v2CategoryList" class="v2-category-list">
+        <div class="v2-state-box">
+          <div class="v2-spinner"></div>
+          <p>Loading drinks categories…</p>
+        </div>
+      </div>
+
+      <!-- 2. Category Detail / Drink Items View -->
+      <div id="v2DetailView" class="v2-detail-view">
+        <div class="v2-detail-header">
+          <div class="v2-back-btn-row">
+            <button type="button" id="v2BackBtn" class="v2-back-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              <span>All Categories</span>
+            </button>
+          </div>
+          <div id="v2DetailBanner" class="v2-detail-cat-banner">
+            <img id="v2DetailBannerImg" src="" alt="" class="v2-category-bg">
+            <div class="v2-category-overlay">
+              <span id="v2CurrentCatTitle" class="v2-category-name"></span>
+              <span id="v2CurrentCatCount" class="v2-category-count"></span>
+            </div>
+          </div>
+        </div>
+        <div id="v2DetailItemsList" class="v2-detail-items-list"></div>
+      </div>
+
+      <!-- 3. Search Results View -->
+      <div id="v2SearchResults" class="v2-search-results">
+        <div id="v2SearchMeta" class="v2-search-meta"></div>
+        <div id="v2SearchItemsList" class="v2-search-items-list"></div>
+      </div>
+    </main>
+
   </div>
 
-  <!-- Menu Feed — populated dynamically by menu-loader.js -->
-  <main class="menu-feed-container" id="menuFeed">
-    <div class="menu-loading-spinner" aria-label="Loading menu">
-      <div class="spinner-ring"></div>
-      <p>Loading menu…</p>
-    </div>
-  </main>
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="menu-loader.js"></script>
+  <script src="menu-v2.js"></script>
 </body>
 </html>

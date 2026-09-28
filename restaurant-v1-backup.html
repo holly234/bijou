@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>BIJOU | Restaurant &amp; Dining Menu</title>
+  <meta name="description" content="Bijou Restaurant dining menu - signature platters, firewood jollof, ofada delicacies, native soups, and gourmet pepper soups.">
+  <meta name="theme-color" content="#0b0c10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="menu-page" data-section="restaurant">
+
+  <nav class="page-topbar" aria-label="Restaurant Page Navigation">
+    <a href="index.html" class="topbar-back-btn" title="Back to Portal Selection">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <span>Back</span>
+    </a>
+    <div class="topbar-center-brand">
+      <img src="assets/bijou_logo.png" alt="Bijou" class="topbar-logo-img">
+    </div>
+    <div class="topbar-actions">
+      <a href="lounge.html" class="topbar-switch-btn" title="Go to Lounge &amp; Drinks Menu">
+        <span>🍸 Drinks</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="menu-page-header">
+    <h1 class="menu-page-title">RESTAURANT MENU</h1>
+    <p class="menu-page-subtitle">Bijou Bistro &bull; Freshly Prepared to Order</p>
+  </header>
+
+  <!-- Category Tabs — built dynamically by menu-loader.js -->
+  <div class="category-tabs-container">
+    <div class="category-tabs-track" id="categoryTabsTrack"></div>
+  </div>
+
+  <!-- Menu Feed — populated dynamically by menu-loader.js -->
+  <main class="menu-feed-container" id="menuFeed">
+    <div class="menu-loading-spinner" aria-label="Loading menu">
+      <div class="spinner-ring"></div>
+      <p>Loading menu…</p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="menu-loader.js"></script>
+</body>
+</html>

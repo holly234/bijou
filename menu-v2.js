@@ -25,54 +25,54 @@
   const searchItemsList   = document.getElementById('v2SearchItemsList');
   const searchMeta        = document.getElementById('v2SearchMeta');
 
-  // Curated category banner photos (Authentic and food-accurate)
+  // Curated category banner photos (Authentic and food-accurate local assets)
   const CATEGORY_IMAGES = {
     // ── Restaurant ──
-    'Charcoal Grill & BBQ': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop&q=80',
-    'Rice & Porridge':      'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80',
-    'Ofada Dishes':         'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&auto=format&fit=crop&q=80',
-    'Swallow Combos':       'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
-    'Swallow':              'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
-    'Beans':                'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800&auto=format&fit=crop&q=80',
-    'Pasta & Noodles':      'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&auto=format&fit=crop&q=80',
-    'Pasta':                'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&auto=format&fit=crop&q=80',
-    'Pepper Soups':         'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&auto=format&fit=crop&q=80',
-    'Signature Platters':   'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80',
-    '1911 Special Platter': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80',
-    'Salads':               'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop&q=80',
-    'Gourmet Soups':        'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
-    'Soups & Stews':        'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
-    'Soup Varieties':       'https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop&q=80',
-    'Soups by the Litre':   'https://images.unsplash.com/photo-1505253758473-96b3d5eb926f?w=800&auto=format&fit=crop&q=80',
-    'Sauces & Stews':       'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&auto=format&fit=crop&q=80',
-    'Sauces':               'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&auto=format&fit=crop&q=80',
-    'Sauce':                'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&auto=format&fit=crop&q=80',
-    'Seafood Special':      'https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=800&auto=format&fit=crop&q=80',
-    'Proteins':             'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&auto=format&fit=crop&q=80',
-    'Extra Sides':          'https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80',
-    'Extra':                'https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80',
-    'Swallows Extra':       'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&auto=format&fit=crop&q=80',
+    'Charcoal Grill & BBQ': 'assets/thumbs/bbq_charcoal_chicken.jpg',
+    'Rice & Porridge':      'assets/categories/jollof.jpg',
+    'Ofada Dishes':         'assets/categories/ofada.jpg',
+    'Swallow Combos':       'assets/categories/swallow.jpg',
+    'Swallow':              'assets/categories/swallow.jpg',
+    'Beans':                'assets/thumbs/beans_stew.jpg',
+    'Pasta & Noodles':      'assets/thumbs/pasta.jpg',
+    'Pasta':                'assets/thumbs/pasta.jpg',
+    'Pepper Soups':         'assets/thumbs/peppersoup_fish.jpg',
+    'Signature Platters':   'assets/thumbs/platter.jpg',
+    '1911 Special Platter': 'assets/thumbs/platter.jpg',
+    'Salads':               'assets/thumbs/caesar.jpg',
+    'Gourmet Soups':        'assets/categories/swallow.jpg',
+    'Soups & Stews':        'assets/thumbs/red_stew.jpg',
+    'Soup Varieties':       'assets/thumbs/red_stew.jpg',
+    'Soups by the Litre':   'assets/thumbs/red_stew.jpg',
+    'Sauces & Stews':       'assets/thumbs/red_stew.jpg',
+    'Sauces':               'assets/thumbs/red_stew.jpg',
+    'Sauce':                'assets/thumbs/red_stew.jpg',
+    'Seafood Special':      'assets/thumbs/cajun_boil.jpg',
+    'Proteins':             'assets/thumbs/proteins.jpg',
+    'Extra Sides':          'assets/thumbs/fried_plantains.jpg',
+    'Extra':                'assets/thumbs/fried_plantains.jpg',
+    'Swallows Extra':       'assets/categories/swallow.jpg',
 
     // ── Lounge ──
-    'Soft Drinks & Yoghurt':'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&auto=format&fit=crop&q=80',
-    'Cognac Drink':         'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&auto=format&fit=crop&q=80',
-    'Juice':                'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&auto=format&fit=crop&q=80',
-    'Can Drink':            'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&auto=format&fit=crop&q=80',
-    'Beer':                 'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=800&auto=format&fit=crop&q=80',
-    'Gin':                  'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&auto=format&fit=crop&q=80',
-    'Wine':                 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&auto=format&fit=crop&q=80',
-    'Vodka':                'https://images.unsplash.com/photo-1560512823-829485b8bf24?w=800&auto=format&fit=crop&q=80',
-    'Champagne':            'https://images.unsplash.com/photo-1569919659476-f0852f6834b7?w=800&auto=format&fit=crop&q=80',
-    'Tequila':              'https://images.unsplash.com/photo-1549416878-b9ca35c2d47b?w=800&auto=format&fit=crop&q=80',
-    'Mocktails':            'https://images.unsplash.com/photo-1536935338788-846bb9981813?w=800&auto=format&fit=crop&q=80',
-    'Cocktails':            'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop&q=80',
-    'Bitters Drink':        'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&auto=format&fit=crop&q=80',
-    'Sparkling Wine':       'https://images.unsplash.com/photo-1584225065152-4a1454aa3d4e?w=800&auto=format&fit=crop&q=80',
-    'Energy Drinks':        'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&auto=format&fit=crop&q=80',
-    'Whisky Drinks':        'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=800&auto=format&fit=crop&q=80'
+    'Soft Drinks & Yoghurt':'assets/thumbs/soda.jpg',
+    'Cognac Drink':         'assets/thumbs/cognac_snifter.jpg',
+    'Juice':                'assets/thumbs/juice.jpg',
+    'Can Drink':            'assets/thumbs/cans.jpg',
+    'Beer':                 'assets/thumbs/beer.jpg',
+    'Gin':                  'assets/thumbs/gin_tonic.jpg',
+    'Wine':                 'assets/thumbs/wine.jpg',
+    'Vodka':                'assets/thumbs/vodka.jpg',
+    'Champagne':            'assets/thumbs/test_champagne.jpg',
+    'Tequila':              'assets/thumbs/test_tequila.jpg',
+    'Mocktails':            'assets/thumbs/mocktail.jpg',
+    'Cocktails':            'assets/thumbs/cocktail.jpg',
+    'Bitters Drink':        'assets/thumbs/bitters.jpg',
+    'Sparkling Wine':       'assets/thumbs/sparkling.jpg',
+    'Energy Drinks':        'assets/thumbs/energy.jpg',
+    'Whisky Drinks':        'assets/thumbs/whisky_glass.jpg'
   };
 
-  const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80';
+  const DEFAULT_IMAGE = 'assets/thumbs/platter.jpg';
 
   let rawItems = [];
   let categorized = {};
