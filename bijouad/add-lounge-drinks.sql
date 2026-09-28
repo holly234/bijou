@@ -130,9 +130,11 @@ insert into public.inventory (section, name, category, quantity, unit, price, no
 -- ════════════════════════════════════════════════════════════
 
 -- ── BITTERS DRINK ───────────────────────────────────────────
-('lounge', 'Origin Bitters',       'Bitters Drink', 99, 'bottles', 2000, null, true, 13),
-('lounge', 'Ace Bitters',          'Bitters Drink', 99, 'bottles', 1500, null, true, 13),
-('lounge', 'Action Bitter',        'Bitters Drink', 99, 'bottles', 1500, null, true, 13),
+('lounge', 'Origin Bitters',       'Bitters Drink', 99, 'bottles', 2000,  null, true, 13),
+('lounge', 'Ace Bitters',          'Bitters Drink', 99, 'bottles', 1500,  null, true, 13),
+('lounge', 'Action Bitter',        'Bitters Drink', 99, 'bottles', 1500,  null, true, 13),
+('lounge', 'Campari Big',          'Bitters Drink', 99, 'bottles', 35000, null, true, 13),
+('lounge', 'Campari Small',        'Bitters Drink', 99, 'bottles', 10000, null, true, 13),
 
 -- ── SPARKLING WINE ──────────────────────────────────────────
 ('lounge', 'Andre Rose',           'Sparkling Wine', 99, 'bottles', 20000, null, true, 14),
@@ -157,5 +159,4 @@ insert into public.inventory (section, name, category, quantity, unit, price, no
 ('lounge', 'Imperial Blue',        'Whisky Drinks', 99, 'bottles', 15000, null, true, 16),
 ('lounge', 'Red Label',            'Whisky Drinks', 99, 'bottles', 35000, null, true, 16),
 ('lounge', 'Jack Daniels',         'Whisky Drinks', 99, 'bottles', 60000, null, true, 16),
-('lounge', 'Mack Old Level',       'Whisky Drinks', 99, 'bottles', 15000, null, true, 16),
-('lounge', 'Campari',              'Whisky Drinks', 99, 'bottles', 10000, null, true, 16);
+('lounge', 'Mack Old Level',       'Whisky Drinks', 99, 'bottles', 15000, null, true, 16);
