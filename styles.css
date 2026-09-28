@@ -853,7 +853,7 @@ body.menu-page .ambient-backdrop {
   color: #8c8d98;
   line-height: 1.65;
   margin-top: 0.35rem;
-  padding-right: 0.5rem;
+  max-width: 70%;
   letter-spacing: 0.01em;
 }
 
