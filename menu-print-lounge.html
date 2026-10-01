@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BIJOU Lounge &amp; Drinks Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4 portrait;margin:0}
+.page{width:210mm;height:297mm;background:#fdf8f0;position:relative;overflow:hidden;font-family:'Lato',sans-serif;page-break-after:always;display:flex;flex-direction:column}
+.side-photo{position:absolute;top:0;bottom:0;width:22mm;overflow:hidden;display:flex;flex-direction:column}
+.side-photo.left{left:0}.side-photo.right{right:0}
+.side-photo img{width:100%;flex:1;object-fit:cover;display:block}
+.main{margin:0 23mm;padding:6mm 5mm 5mm;flex:1;display:flex;flex-direction:column;overflow:hidden}
+.top-header{display:flex;align-items:center;justify-content:center;gap:5mm;margin-bottom:4mm;padding-bottom:3mm;border-bottom:1.5pt solid #b8860b;flex-shrink:0}
+.top-logo{height:22mm;width:auto;object-fit:contain}
+.menu-word{font-family:'Cinzel',serif;font-size:26pt;font-weight:900;color:#1a1a1a;letter-spacing:0.18em;line-height:1}
+.menu-sub{font-size:7.5pt;color:#b8860b;letter-spacing:0.28em;font-weight:700;text-transform:uppercase;margin-top:1.5mm}
+.page-label{font-size:6pt;color:#aaa;letter-spacing:0.2em;text-align:right;margin-top:1mm}
+.grid{display:flex;align-items:flex-start;gap:5mm;flex:1;overflow:hidden}
+.col{flex:1;min-width:0}
+.cat{margin-bottom:5mm}
+.cat-head{background:#1a1a1a;color:#f5d060;font-family:'Lato',sans-serif;font-size:7.2pt;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:2mm 3mm;border-radius:20pt;margin-bottom:2.5mm;border:0.6pt solid #b8860b}
+.items{padding:0 1mm}
+.item{margin-bottom:3.2mm}
+.item-line{display:flex;justify-content:space-between;align-items:baseline;gap:2mm}
+.item-name{font-size:8.2pt;font-weight:700;color:#1a1a1a;flex:1;line-height:1.35}
+.item-price{font-size:8.5pt;font-weight:900;color:#1a1a1a;white-space:nowrap;flex-shrink:0}
+.footer{text-align:center;padding-top:2.5mm;border-top:1pt solid #b8860b;font-size:6pt;color:#888;letter-spacing:0.12em;flex-shrink:0;margin-top:auto}
+.footer b{color:#b8860b}
+.back-page{width:210mm;height:297mm;background:#fdf8f0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7mm;position:relative;overflow:hidden}
+.back-page::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#b8860b20 1px,transparent 1px);background-size:12mm 12mm;z-index:0}
+.back-page>*{position:relative;z-index:1}
+.back-logo{height:45mm;width:auto;object-fit:contain}
+.qr-box{background:#fff;border:1.5pt solid #b8860b;border-radius:4mm;padding:5mm;box-shadow:0 2pt 8pt rgba(184,134,11,.15)}
+.qr-img{width:65mm;height:65mm;display:block}
+.back-tagline{font-size:7pt;color:#888;letter-spacing:0.25em;text-transform:uppercase;text-align:center}
+.cover-page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;display:block}
+.cover-img{width:100%;height:100%;object-fit:cover;display:block}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER PAGE ══════════ -->
+<div class="cover-page">
+  <img src="assets/menu-front-cover.jpg" class="cover-img" alt="BIJOU Menu Cover">
+</div>
+
+<!-- ══════════ PAGE 1 OF 2 ══════════ -->
+<div class="page">
+  <div class="side-photo left">
+    <img src="assets/thumbs/soda.jpg" alt=""><img src="assets/thumbs/beer.jpg" alt="">
+    <img src="assets/thumbs/juice.jpg" alt=""><img src="assets/thumbs/mocktail.jpg" alt="">
+  </div>
+  <div class="side-photo right">
+    <img src="assets/thumbs/cocktail.jpg" alt=""><img src="assets/thumbs/monster_energy.jpg" alt="">
+    <img src="assets/thumbs/bitters.jpg" alt=""><img src="assets/thumbs/cans.jpg" alt="">
+  </div>
+  <div class="main">
+    <div class="top-header">
+      <img src="assets/bijou_logo_transparent.png" class="top-logo" alt="BIJOU">
+      <div>
+        <div class="menu-word">MENU</div>
+        <div class="menu-sub">Lounge · Drinks · Fine Spirits</div>
+        <div class="page-label">Page 1 of 2</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- COL 1 (20 items): Soft Drinks, Juice, Natural, Bitters -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🥤 Soft Drinks &amp; Yoghurt</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Water</span><span class="item-price">₦500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Coke Big</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fanta</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Sprite</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Malta Guinness</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Maltina</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fayrouz</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Nutri Milk</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Hollandia Small</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Tiger Nut</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Hollandia Big</span><span class="item-price">₦3,500</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍊 Juice</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">5 Alive Pulpy</span><span class="item-price">₦2,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chi Active</span><span class="item-price">₦3,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chi Exotic</span><span class="item-price">₦3,500</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🌺 Natural Drink</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Zobo Drinks</span><span class="item-price">₦1,500</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🌿 Bitters Drink</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Ace Bitters</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Action Bitter</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Origin Bitters</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Campari Small</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Campari Big</span><span class="item-price">₦35,000</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2 (23 items): Beer + Energy Drinks -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🍺 Beer</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">"33" Export</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Black Goldberg</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Desperado</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Goldberg</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Gulder</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Lite</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Origin Beer</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Small Stout</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Smirnoff Double Black</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Star Radler</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Tiger Beer</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Trophy</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Budweiser</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Heineken</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Legend</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Medium Stout</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Big Stout</span><span class="item-price">₦2,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Smirnoff Ice Big</span><span class="item-price">₦2,500</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">⚡ Energy Drinks</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Fearless</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Climax Plastic</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Commando</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Predator</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Monster</span><span class="item-price">₦2,500</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 3 (19 items): Can Drinks, Mocktails, Cocktails -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🥫 Can Drinks</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Maltina Can</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chi Active Can</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chi Exotic Can</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Desperado Can</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Smirnoff Ice Can</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Veleta Can</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Black Bullet</span><span class="item-price">₦2,500</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍹 Mocktails</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Chapman</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fruit Punch</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Smoothie</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Sweet Sunrise</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Virgin Colada</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Virgin Daiquiri</span><span class="item-price">₦7,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍸 Cocktails</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Daiquiri</span><span class="item-price">₦8,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Long Island Ice Tea</span><span class="item-price">₦8,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Pina Colada</span><span class="item-price">₦8,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Royal Modak Milkshake</span><span class="item-price">₦8,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Sex on the Beach</span><span class="item-price">₦8,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Tequila Sunrise</span><span class="item-price">₦8,000</span></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer"><b>BIJOU Lounge &amp; Restaurant</b> &nbsp;·&nbsp; bijouinn.com &nbsp;·&nbsp; All prices in ₦ &nbsp;·&nbsp; Continued on Page 2</div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE 2 OF 2 ══════════ -->
+<div class="page">
+  <div class="side-photo left">
+    <img src="assets/thumbs/champagne_gold.jpg" alt=""><img src="assets/thumbs/whisky_glass.jpg" alt="">
+    <img src="assets/thumbs/vodka.jpg" alt=""><img src="assets/thumbs/tequila.jpg" alt="">
+  </div>
+  <div class="side-photo right">
+    <img src="assets/thumbs/wine.jpg" alt=""><img src="assets/thumbs/sparkling.jpg" alt="">
+    <img src="assets/thumbs/gin.jpg" alt=""><img src="assets/thumbs/test_champagne.jpg" alt="">
+  </div>
+  <div class="main">
+    <div class="top-header">
+      <img src="assets/bijou_logo_transparent.png" class="top-logo" alt="BIJOU">
+      <div>
+        <div class="menu-word">MENU</div>
+        <div class="menu-sub">Lounge · Drinks · Fine Spirits</div>
+        <div class="page-label">Page 2 of 2</div>
+      </div>
+    </div>
+    <div class="grid">
+
+      <!-- COL 1: Gin, Tequila, Vodka -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head"> Gin</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Gordon's Gin Small</span><span class="item-price">₦4,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Lord's Gin</span><span class="item-price">₦20,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🌵 Tequila</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Jager Monster</span><span class="item-price">₦30,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Sierra Tequila</span><span class="item-price">₦45,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Sierra Olmeca</span><span class="item-price">₦50,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🥃 Vodka</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Gordon Small</span><span class="item-price">₦4,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Smirnoff X1 Medium</span><span class="item-price">₦4,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Smirnoff X1 Big</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Magic Moment</span><span class="item-price">₦15,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Elliot</span><span class="item-price">₦25,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ciroc</span><span class="item-price">₦60,000</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2: Whisky Drinks, Cognac -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🥃 Whisky Drinks</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Best Whiskey Small</span><span class="item-price">₦2,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Best Whiskey Big</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Imperial Blue</span><span class="item-price">₦15,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Mack Old Level</span><span class="item-price">₦15,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">William Lawson</span><span class="item-price">₦25,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Jameson Green</span><span class="item-price">₦35,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Red Label</span><span class="item-price">₦35,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Jack Daniels</span><span class="item-price">₦45,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Jameson Black Barrel</span><span class="item-price">₦45,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">✨ Cognac</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Martel VS</span><span class="item-price">₦65,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Hennessy VS</span><span class="item-price">₦70,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Martel VSOP</span><span class="item-price">₦90,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Hennessy VSOP</span><span class="item-price">₦100,000</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 3: Wine, Sparkling Wine, Champagne -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🍷 Wine</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Expression</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Status</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Baron</span><span class="item-price">₦15,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Drostdy Hof</span><span class="item-price">₦15,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Veleta</span><span class="item-price">₦15,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Blue Rum</span><span class="item-price">₦20,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Four Cousins</span><span class="item-price">₦20,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Carlorossi</span><span class="item-price">₦35,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🥂 Sparkling Wine</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Cape More</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">4th Street</span><span class="item-price">₦20,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Andre Rose</span><span class="item-price">₦20,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Dominio Rose</span><span class="item-price">₦25,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Joven</span><span class="item-price">₦25,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍾 Champagne</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Belaire Rose</span><span class="item-price">₦70,000</span></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer"><b>BIJOU Lounge &amp; Restaurant</b> &nbsp;·&nbsp; bijouinn.com &nbsp;·&nbsp; All prices in ₦ &nbsp;·&nbsp; Scan QR on reverse for digital menu</div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE 3: QR BACK ══════════ -->
+<div class="back-page">
+  <img src="assets/bijou_logo_transparent.png" class="back-logo" alt="BIJOU">
+  <div class="qr-box"><img class="qr-img" src="assets/qr-main.png" alt="Bijou QR Code"></div>
+  <div class="back-tagline">Good Food &bull; Good Mood &bull; Great Memories</div>
+</div>
+
+</body>
+</html>

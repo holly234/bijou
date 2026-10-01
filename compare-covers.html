@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BIJOU - Cover Options Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#121214;
+  color:#fff;
+  font-family:'Lato',sans-serif;
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+header{
+  text-align:center;
+  margin-bottom:30px;
+}
+h1{
+  font-family:'Cinzel',serif;
+  font-size:24pt;
+  color:#e2bc52;
+  letter-spacing:0.15em;
+  margin-bottom:8px;
+}
+p{
+  color:#aaa;
+  font-size:11pt;
+  letter-spacing:0.05em;
+}
+.grid{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  max-width:1400px;
+}
+.card{
+  background:#1a1a1e;
+  border:1px solid #333;
+  border-radius:12px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  box-shadow:0 12px 35px rgba(0,0,0,0.6);
+  transition:transform 0.2s, border-color 0.2s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#e2bc52;
+}
+.card-title{
+  font-family:'Cinzel',serif;
+  font-size:14pt;
+  color:#f5d060;
+  margin-bottom:6px;
+  letter-spacing:0.1em;
+}
+.card-desc{
+  font-size:9pt;
+  color:#888;
+  margin-bottom:16px;
+  text-align:center;
+  max-width:320px;
+}
+.preview-img{
+  width:340px;
+  height:480px;
+  object-fit:cover;
+  border-radius:6px;
+  border:1px solid #444;
+  box-shadow:0 6px 20px rgba(0,0,0,0.7);
+  margin-bottom:16px;
+}
+.btn{
+  background:#e2bc52;
+  color:#111;
+  font-family:'Cinzel',serif;
+  font-size:9pt;
+  font-weight:900;
+  letter-spacing:0.15em;
+  padding:10px 24px;
+  border-radius:6px;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:background 0.2s;
+}
+.btn:hover{
+  background:#fff;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BIJOU COVER SELECTION</h1>
+  <p>Compare both cover designs side-by-side for the client</p>
+</header>
+
+<div class="grid">
+  <!-- Option 1 -->
+  <div class="card">
+    <div class="card-title">OPTION 1: BOTANICAL MINIMAL</div>
+    <div class="card-desc">Matte black background, geometric pinstripes, elegant gold line-art botanical seed pods, centered 3D logo &amp; typography.</div>
+    <img src="assets/menu-front-cover.jpg" class="preview-img" alt="Option 1">
+    <a href="print-cover.html" target="_blank" class="btn">View / Print Option 1</a>
+  </div>
+
+  <!-- Option 2 -->
+  <div class="card">
+    <div class="card-title">OPTION 2: CURVED ARCH &amp; DISHES</div>
+    <div class="card-desc">Black &amp; gold theme, elegant sweeping gold arch dividing line, 3 circular plated dishes on left with shadows, centered branding in arch.</div>
+    <img src="assets/menu-front-cover-option2.jpg" class="preview-img" alt="Option 2">
+    <a href="print-cover-option2.html" target="_blank" class="btn">View / Print Option 2</a>
+  </div>
+</div>
+
+</body>
+</html>

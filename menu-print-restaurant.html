@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BIJOU Restaurant Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4 portrait;margin:0}
+.page{width:210mm;height:297mm;background:#fdf8f0;position:relative;overflow:hidden;font-family:'Lato',sans-serif;page-break-after:always;display:flex;flex-direction:column}
+.side-photo{position:absolute;top:0;bottom:0;width:22mm;overflow:hidden;display:flex;flex-direction:column}
+.side-photo.left{left:0}.side-photo.right{right:0}
+.side-photo img{width:100%;flex:1;object-fit:cover;display:block}
+.main{margin:0 23mm;padding:5mm 4mm 4mm;flex:1;display:flex;flex-direction:column;overflow:hidden}
+.top-header{display:flex;align-items:center;justify-content:center;gap:4mm;margin-bottom:3.5mm;padding-bottom:3mm;border-bottom:1.5pt solid #b8860b;flex-shrink:0}
+.top-logo{height:20mm;width:auto;object-fit:contain}
+.menu-word{font-family:'Cinzel',serif;font-size:24pt;font-weight:900;color:#1a1a1a;letter-spacing:0.18em;line-height:1}
+.menu-sub{font-size:6.5pt;color:#b8860b;letter-spacing:0.28em;font-weight:700;text-transform:uppercase;margin-top:1mm}
+.page-label{font-size:5.5pt;color:#aaa;letter-spacing:0.2em;text-align:right;margin-top:0.5mm}
+/* 3 explicit flex columns */
+.grid{display:flex;align-items:flex-start;gap:4mm;flex:1;overflow:hidden}
+.col{flex:1;min-width:0}
+.cat{margin-bottom:4mm}
+.cat-head{background:#1a1a1a;color:#f5d060;font-family:'Lato',sans-serif;font-size:6.5pt;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:1.8mm 2.5mm;border-radius:20pt;margin-bottom:2mm;border:0.5pt solid #b8860b}
+.items{padding:0 1mm}
+.item{margin-bottom:2.8mm}
+.item-line{display:flex;justify-content:space-between;align-items:baseline;gap:2mm;margin-bottom:0.8mm}
+.item-name{font-size:7pt;font-weight:700;color:#1a1a1a;flex:1;line-height:1.4}
+.item-price{font-size:7.2pt;font-weight:900;color:#1a1a1a;white-space:nowrap;flex-shrink:0}
+.item-desc{font-size:6.5pt;color:#555;line-height:1.6;display:block;padding-right:15mm}
+.footer{text-align:center;padding-top:2mm;border-top:1pt solid #b8860b;font-size:5.5pt;color:#888;letter-spacing:0.12em;flex-shrink:0;margin-top:auto}
+.footer b{color:#b8860b}
+/* back page */
+.back-page{width:210mm;height:297mm;background:#fdf8f0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7mm;position:relative;overflow:hidden}
+.back-page::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#b8860b20 1px,transparent 1px);background-size:12mm 12mm;z-index:0}
+.back-page>*{position:relative;z-index:1}
+.back-logo{height:42mm;width:auto;object-fit:contain}
+.qr-box{background:#fff;border:1.5pt solid #b8860b;border-radius:4mm;padding:5mm;box-shadow:0 2pt 8pt rgba(184,134,11,.15)}
+.qr-img{width:62mm;height:62mm;display:block}
+.back-tagline{font-size:6.5pt;color:#888;letter-spacing:0.25em;text-transform:uppercase;text-align:center}
+.cover-page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;display:block}
+.cover-img{width:100%;height:100%;object-fit:cover;display:block}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER PAGE ══════════ -->
+<div class="cover-page">
+  <img src="assets/menu-front-cover.jpg" class="cover-img" alt="BIJOU Menu Cover">
+</div>
+
+<!-- ══════════ PAGE 1 ══════════ -->
+<div class="page">
+  <div class="side-photo left">
+    <img src="assets/thumbs/platter.jpg" alt=""><img src="assets/thumbs/bbq_grilled_fish.jpg" alt="">
+    <img src="assets/thumbs/rice_jollof.jpg" alt=""><img src="assets/thumbs/cajun_boil.jpg" alt="">
+  </div>
+  <div class="side-photo right">
+    <img src="assets/thumbs/swallow.jpg" alt=""><img src="assets/thumbs/ofada.jpg" alt="">
+    <img src="assets/thumbs/pasta.jpg" alt=""><img src="assets/thumbs/peppersoup_fish.jpg" alt="">
+  </div>
+  <div class="main">
+    <div class="top-header">
+      <img src="assets/bijou_logo_transparent.png" class="top-logo" alt="BIJOU">
+      <div><div class="menu-word">MENU</div><div class="menu-sub">Restaurant · Gourmet Dining</div><div class="page-label">Page 1 of 2</div></div>
+    </div>
+    <div class="grid">
+
+      <!-- COL 1: Rice (tall) -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🍚 Rice &amp; Porridge</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Firewood Delight</span><span class="item-price">₦8,750</span></div><div class="item-desc">Smokey Jollof | Moi-Moi | Plantain | 2 Beef &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fried Rice Combo</span><span class="item-price">₦9,750</span></div><div class="item-desc">Fried Rice | Plantain | Moi-Moi | 2 Beef | Coleslaw &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Jollof Reloaded</span><span class="item-price">₦12,250</span></div><div class="item-desc">Smokey Jollof | Coleslaw | Moi-Moi | Plantain | Fish | 2 Beef &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Classic Porridge</span><span class="item-price">₦12,500</span></div><div class="item-desc">Porridge | Steamed Veg | Beef | Eja Kika &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Native Rice</span><span class="item-price">₦13,750</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Coconut Rice Combo</span><span class="item-price">₦14,750</span></div><div class="item-desc">Coconut Rice | Sauce | Egg | Beef | Ponmo | Panla Fish &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Hot Pot Jollof</span><span class="item-price">₦15,750</span></div><div class="item-desc">Smokey Jollof | Coleslaw | Moi-Moi | Plantain | Turkey | Fish | Soft Drink &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Asun Rice</span><span class="item-price">₦19,750</span></div><div class="item-desc">Spicy Asun infused rice loaded with peppered goat meat</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">BIJOU Special Signature</span><span class="item-price">₦22,000</span></div><div class="item-desc">Basmati Rice | Prawn | Veg | Plantain | Turkey or Chicken or Fish</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Royal Jollof</span><span class="item-price">₦25,750</span></div><div class="item-desc">Smokey Jollof | Coleslaw | Moi-Moi | Plantain | Turkey | Fish | Chicken | Beef | 2 Drinks &amp; 2 Waters</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2 -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🔥 Charcoal Grill &amp; BBQ</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Catfish Barbecue</span><span class="item-price">₦16,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chicken Barbecue</span><span class="item-price">₦12,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Croaker Fish</span><span class="item-price">₦17,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Tilapia Fish BBQ</span><span class="item-price">₦17,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Turkey Barbecue</span><span class="item-price">₦13,000</span></div></div>
+            <div class="item-desc">Charcoal grilled. Served with Tila Special Sauce.</div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🌿 Ofada Dishes</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Ofada Bliss</span><span class="item-price">₦6,750</span></div><div class="item-desc">Ofada | Plantain | Egg | 2 Assorted | Ponmo &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ofada Delight</span><span class="item-price">₦10,750</span></div><div class="item-desc">Ofada | Beans (Opt.) | Plantain | Egg | Ponmo | Panla | 2 Assorted &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ofada Aladun</span><span class="item-price">₦16,250</span></div><div class="item-desc">Ofada | Beans (Opt.) | Plantain | 2 Eggs | Ponmo | Assorted | Fish | Drink &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ofada Olola</span><span class="item-price">₦23,750</span></div><div class="item-desc">Ofada | Beans | Plantain | 2 Eggs | 3 Ponmo | 2 Beef | Fish | Drink &amp; Water</div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🥣 Swallow Combos</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Gbayi</span><span class="item-price">₦5,250</span></div><div class="item-desc">Amala (3 Scoops) | Gbegiri/Ewedu | 2 Assorted | 2 Ponmo &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Amuludun</span><span class="item-price">₦10,250</span></div><div class="item-desc">Amala (3 Scoops) | Gbegiri/Ewedu | Goat Meat | 2 Ponmo | 2 Assorted &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Oga-Nla</span><span class="item-price">₦12,250</span></div><div class="item-desc">Amala (4 Scoops) | Gbegiri/Ewedu | Goat | 2 Ponmo | 2 Assorted | Fish | Drink &amp; Water</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Olowo-Eko</span><span class="item-price">₦21,750</span></div><div class="item-desc">Amala (6 Scoops) | Gbegiri/Ewedu | 4 Ponmo | 6 Assorted | 2 Drinks &amp; 2 Waters</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 3 -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">👑 Signature Platters</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">BIJOU Platter (Small)</span><span class="item-price">₦52,500</span></div><div class="item-desc">Wings x4 | Turkey x4 | Gizzard x4 | Yam Fries | Plantain Fries &amp; Water. Served with Signature Sauce.</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">BIJOU Platter (Large)</span><span class="item-price">₦105,000</span></div><div class="item-desc">Wings x7 | Turkey x7 | Gizzard x10 | Snail x5 | Crab x2 | Prawn x2 | Yam &amp; Plantain Fries | 2 Drinks &amp; Water</div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🦀 Seafood Special</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Seafood Boils (Half)</span><span class="item-price">₦25,000</span></div><div class="item-desc">Crab | Prawns | Sweet Corn &amp; Potatoes in Cajun Garlic Butter Broth</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Seafood Boils (Full)</span><span class="item-price">₦45,000</span></div><div class="item-desc">Crab | Prawns | Calamari | Sweet Corn &amp; Potatoes in Cajun Garlic Butter Broth</div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍝 Pasta &amp; Noodles</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Stir-fry Spaghetti (Full)</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Spaghetti Jollof</span><span class="item-price">₦9,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Stir-fry Spaghetti (Half)</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Noodle w/ Veggies &amp; Protein</span><span class="item-price">₦10,750</span></div><div class="item-desc">Served with 2 Eggs, Fish or 2 Beef</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Creamy Pasta</span><span class="item-price">₦19,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Singapore Noodles</span><span class="item-price">₦20,750</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🥗 Salads</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Coleslaw Bowl</span><span class="item-price">₦3,750</span></div><div class="item-desc">Cabbage | Carrot | Mayonnaise | Vinegar | Sugar &amp; Salt</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chicken Caesar Salad</span><span class="item-price">₦6,500</span></div><div class="item-desc">Lettuce | Diced Chicken | Carrot | Tomatoes | Cheese | Garlic | Mayo</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Prawn Caesar Salad</span><span class="item-price">₦12,500</span></div><div class="item-desc">Prawn | Diced Chicken | Carrot | Tomatoes | Cheese | Garlic | Mayo</div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🫘 Beans</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Ewa Agonyin Royale</span><span class="item-price">₦6,750</span></div><div class="item-desc">Ewa Agonyin | Plantain | Eja Kika | 2 Ponmo &amp; Water</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer"><b>BIJOU Lounge &amp; Restaurant</b> &nbsp;·&nbsp; bijouinn.com &nbsp;·&nbsp; All prices in ₦ &nbsp;·&nbsp; Continued on Page 2</div>
+  </div>
+</div>
+
+
+<!-- ══════════ PAGE 2 ══════════ -->
+<div class="page">
+  <div class="side-photo left">
+    <img src="assets/thumbs/red_stew.jpg" alt=""><img src="assets/thumbs/peppersoup.jpg" alt="">
+    <img src="assets/thumbs/seafood.jpg" alt=""><img src="assets/thumbs/proteins.jpg" alt="">
+  </div>
+  <div class="side-photo right">
+    <img src="assets/thumbs/salad.jpg" alt=""><img src="assets/thumbs/sides.jpg" alt="">
+    <img src="assets/thumbs/fried_plantains.jpg" alt=""><img src="assets/thumbs/beans.jpg" alt="">
+  </div>
+  <div class="main">
+    <div class="top-header">
+      <img src="assets/bijou_logo_transparent.png" class="top-logo" alt="BIJOU">
+      <div><div class="menu-word">MENU</div><div class="menu-sub">Restaurant · Gourmet Dining</div><div class="page-label">Page 2 of 2</div></div>
+    </div>
+    <div class="grid">
+
+      <!-- COL 1 -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🌶️ Pepper Soups</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Fish Pepper Soup (Half)</span><span class="item-price">₦9,500</span></div><div class="item-desc">Fish | Pepper Soup Mix | Aromatics | Sweet Potatoes or Unripe Plantain</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Goat Meat Pepper Soup</span><span class="item-price">₦10,250</span></div><div class="item-desc">Goat Meat | Pepper Soup Mix | Sweet Potatoes or Unripe Plantain</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fish Pepper Soup (Full)</span><span class="item-price">₦15,250</span></div><div class="item-desc">Fish | Pepper Soup Mix | Aromatics | Sweet Potatoes or Unripe Plantain</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Seafood Pepper Soup</span><span class="item-price">₦24,750</span></div><div class="item-desc">Seafood | Crab | Fresh Fish | Pepper Soup Mix &amp; Aromatics</div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Point &amp; Kill Peppersoup</span><span class="item-price">₦43,250</span></div><div class="item-desc">Live Full Chicken | Peppersoup Mix | Aromatics | Sweet Potatoes or Unripe Plantain</div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍲 Gourmet Soups</div>
+          <div class="items">
+            <div class="item-desc" style="margin-bottom:2mm;font-weight:700;font-size:6pt;color:#444">All served with Swallow of your Choice</div>
+            <div class="item"><div class="item-line"><span class="item-name">Ogbono Soup</span><span class="item-price">₦9,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Edikaikong</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Efo Riro</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Egusi with Vegetables</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ofensala</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Oha Soup</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Afang Soup</span><span class="item-price">₦10,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fisherman Soup</span><span class="item-price">₦20,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Seafood Okro</span><span class="item-price">₦25,000</span></div><div class="item-desc">Fish | Crab | Prawns | Vegetables | Calamari</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2 -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🪣 Soups by the Litre</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Efo Riro / Efo Elegusi (1L)</span><span class="item-price">₦22,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ogbono (1L)</span><span class="item-price">₦24,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Oha Soup (1L)</span><span class="item-price">₦24,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Afang Soup (1L)</span><span class="item-price">₦25,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Beef Soup (1L)</span><span class="item-price">₦25,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ofe-Nsala (1L)</span><span class="item-price">₦25,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Edikaikong (1L)</span><span class="item-price">₦27,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chicken Soup (1L)</span><span class="item-price">₦28,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Gbegiri (1L)</span><span class="item-price">₦28,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Gbegiri &amp; Ewedu (1L each)</span><span class="item-price">₦30,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fish Soup (1L)</span><span class="item-price">₦32,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Turkey Soup (1L)</span><span class="item-price">₦40,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🫕 Sauces &amp; Stews</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Agonyin Sauce (1L)</span><span class="item-price">₦13,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Goat Meat Stew (1L)</span><span class="item-price">₦21,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Agonyin with Protein (1L)</span><span class="item-price">₦22,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Ofada Sauce with Protein (1L)</span><span class="item-price">₦32,000</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 3 -->
+      <div class="col">
+        <div class="cat">
+          <div class="cat-head">🥩 Proteins (Add-ons)</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Panla Fish</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Hake Fish</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Cow Meat (2 pcs)</span><span class="item-price">₦2,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Goat Meat</span><span class="item-price">₦3,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chicken</span><span class="item-price">₦7,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Turkey</span><span class="item-price">₦8,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Snail / Peppered Snail</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Tilapia Fish</span><span class="item-price">₦10,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Owene Fish</span><span class="item-price">₦20,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🍟 Extra Sides</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Moi-Moi</span><span class="item-price">₦1,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Coleslaw / Plantain / Yam Fries</span><span class="item-price">₦2,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">French Fries</span><span class="item-price">₦2,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Jollof Rice (Side)</span><span class="item-price">₦3,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Steamed Rice / Omelette</span><span class="item-price">₦3,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Fried Rice (Side)</span><span class="item-price">₦4,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Coconut Rice (Side)</span><span class="item-price">₦5,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Chicken &amp; Chips</span><span class="item-price">₦9,500</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Grilled Chicken &amp; Plantain</span><span class="item-price">₦10,000</span></div></div>
+          </div>
+        </div>
+        <div class="cat">
+          <div class="cat-head">🫙 Swallows (Extra)</div>
+          <div class="items">
+            <div class="item"><div class="item-line"><span class="item-name">Amala / Eba / Semovita</span><span class="item-price">₦1,000</span></div></div>
+            <div class="item"><div class="item-line"><span class="item-name">Pounded Yam / Starch</span><span class="item-price">₦1,500</span></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer"><b>BIJOU Lounge &amp; Restaurant</b> &nbsp;·&nbsp; bijouinn.com &nbsp;·&nbsp; All prices in ₦ &nbsp;·&nbsp; Scan QR on reverse for digital menu</div>
+  </div>
+</div>
+
+
+<!-- ══════════ QR BACK ══════════ -->
+<div class="back-page">
+  <img src="assets/bijou_logo_transparent.png" class="back-logo" alt="BIJOU">
+  <div class="qr-box"><img class="qr-img" src="assets/qr-main.png" alt="Bijou QR Code"></div>
+  <div class="back-tagline">Good Food &bull; Good Mood &bull; Great Memories</div>
+</div>
+
+</body>
+</html>

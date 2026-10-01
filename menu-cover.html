@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BIJOU - Menu Book Cover</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Great+Vibes&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4 portrait;margin:0}
+
+body{
+  background:#111;
+  display:flex;
+  justify-content:center;
+  font-family:'Lato',sans-serif;
+  color:#fff;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.cover-page{
+  width:210mm;
+  height:297mm;
+  background:radial-gradient(ellipse at 50% 35%, #1f1b14 0%, #0a0907 80%, #050403 100%);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:14mm 12mm 12mm;
+  page-break-after:always;
+}
+
+/* Luxury double gold border */
+.gold-frame{
+  position:absolute;
+  inset:7mm;
+  border:1.5pt solid #c59b27;
+  pointer-events:none;
+  z-index:2;
+}
+.gold-frame-inner{
+  position:absolute;
+  inset:9.5mm;
+  border:0.5pt solid rgba(197,155,39,0.5);
+  pointer-events:none;
+  z-index:2;
+}
+
+/* Corner ornaments */
+.corner-ornament{
+  position:absolute;
+  width:16mm;
+  height:16mm;
+  border-color:#e6c35c;
+  z-index:3;
+}
+.corner-tl{top:8mm;left:8mm;border-top:2pt solid #e6c35c;border-left:2pt solid #e6c35c}
+.corner-tr{top:8mm;right:8mm;border-top:2pt solid #e6c35c;border-right:2pt solid #e6c35c}
+.corner-bl{bottom:8mm;left:8mm;border-bottom:2pt solid #e6c35c;border-left:2pt solid #e6c35c}
+.corner-br{bottom:8mm;right:8mm;border-bottom:2pt solid #e6c35c;border-right:2pt solid #e6c35c}
+
+/* Subtle background glow/particles */
+.bg-glow{
+  position:absolute;
+  top:22%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150mm;
+  height:120mm;
+  background:radial-gradient(circle, rgba(197,155,39,0.18) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Content wrapper */
+.content{
+  position:relative;
+  z-index:4;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  height:100%;
+  justify-content:space-between;
+}
+
+/* ── TOP SECTION ── */
+.top-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:4mm;
+}
+.brand-logo{
+  height:44mm;
+  width:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 4pt 12pt rgba(0,0,0,0.8));
+  margin-bottom:3mm;
+}
+.brand-tagline{
+  font-family:'Cinzel',serif;
+  font-size:7.5pt;
+  font-weight:700;
+  color:#e6c35c;
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  margin-top:1mm;
+}
+
+/* Calligraphy Hook */
+.script-tagline{
+  font-family:'Great Vibes',cursive;
+  font-size:32pt;
+  color:#f3d779;
+  line-height:1.15;
+  margin:4mm 0 2mm;
+  text-shadow:0 2pt 8pt rgba(0,0,0,0.8);
+}
+.script-sub{
+  font-family:'Cinzel',serif;
+  font-size:12pt;
+  font-weight:900;
+  color:#ffffff;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+}
+
+/* Divider with diamond */
+.gold-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:70%;
+  margin:4mm 0;
+  gap:3mm;
+}
+.divider-line{
+  flex:1;
+  height:0.8pt;
+  background:linear-gradient(90deg, transparent, #c59b27, transparent);
+}
+.divider-diamond{
+  color:#f3d779;
+  font-size:8pt;
+}
+
+/* ── CENTER BADGES (from brand flyer) ── */
+.badges-container{
+  width:100%;
+  max-width:160mm;
+  margin:2mm 0;
+}
+.badges-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:3.5mm 2.5mm;
+  margin-bottom:3.5mm;
+}
+.badge-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.5mm;
+}
+.badge-circle{
+  width:11mm;
+  height:11mm;
+  border-radius:50%;
+  border:1pt solid #c59b27;
+  background:rgba(20,18,14,0.7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12pt;
+  box-shadow:0 2pt 6pt rgba(0,0,0,0.5);
+}
+.badge-label{
+  font-family:'Cinzel',serif;
+  font-size:5.8pt;
+  font-weight:700;
+  letter-spacing:0.12em;
+  color:#e0dcd3;
+  text-transform:uppercase;
+}
+
+/* Free Wi-Fi Pill */
+.wifi-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:2.5mm;
+  background:linear-gradient(135deg, rgba(20,18,14,0.9), rgba(40,34,22,0.9));
+  border:1pt solid #c59b27;
+  padding:1.8mm 5mm;
+  border-radius:20pt;
+  box-shadow:0 2pt 8pt rgba(0,0,0,0.6);
+}
+.wifi-text{
+  font-family:'Cinzel',serif;
+  font-size:6.5pt;
+  font-weight:900;
+  letter-spacing:0.18em;
+  color:#f3d779;
+  text-transform:uppercase;
+}
+
+/* ── BOTTOM SECTION ── */
+.bottom-section{
+  width:100%;
+  max-width:165mm;
+  margin-bottom:2mm;
+}
+.vibes-line{
+  font-family:'Great Vibes',cursive;
+  font-size:24pt;
+  color:#f3d779;
+  margin-bottom:2mm;
+  text-shadow:0 2pt 6pt rgba(0,0,0,0.8);
+}
+.contact-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:6mm;
+  font-family:'Lato',sans-serif;
+  font-size:7.5pt;
+  font-weight:700;
+  color:#ffffff;
+  letter-spacing:0.08em;
+  margin-bottom:2mm;
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:1.5mm;
+}
+.contact-item span.icon{
+  color:#c59b27;
+  font-size:9pt;
+}
+.contact-sub{
+  font-size:6.5pt;
+  color:#c59b27;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+@media print{
+  body{background:none}
+  .cover-page{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cover-page">
+  <!-- Gold frames & corners -->
+  <div class="gold-frame"></div>
+  <div class="gold-frame-inner"></div>
+  <div class="corner-ornament corner-tl"></div>
+  <div class="corner-ornament corner-tr"></div>
+  <div class="corner-ornament corner-bl"></div>
+  <div class="corner-ornament corner-br"></div>
+  <div class="bg-glow"></div>
+
+  <div class="content">
+
+    <!-- Top: Logo & Main Branding -->
+    <div class="top-section">
+      <img src="assets/bijou_logo_transparent.png" class="brand-logo" alt="BIJOU">
+      <div class="brand-tagline">Good Food · Good Mood · Great Memories</div>
+
+      <!-- Savor the Experience -->
+      <div class="script-tagline">Savor the Experience</div>
+      <div class="script-sub">Elevate the Night</div>
+
+      <div class="gold-divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond">◆</div>
+        <div class="divider-line"></div>
+      </div>
+    </div>
+
+    <!-- Center: Feature Badges (Matching Brand Reference) -->
+    <div class="badges-container">
+      <div class="badges-grid">
+        <div class="badge-item">
+          <div class="badge-circle">🍴</div>
+          <div class="badge-label">Dine In</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">🛍️</div>
+          <div class="badge-label">Take Away</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">🛵</div>
+          <div class="badge-label">Delivery</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">👥</div>
+          <div class="badge-label">Events</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">🍾</div>
+          <div class="badge-label">Fine Spirits</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">🛋️</div>
+          <div class="badge-label">VIP Lounge</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">🎱</div>
+          <div class="badge-label">Snooker</div>
+        </div>
+        <div class="badge-item">
+          <div class="badge-circle">🛎️</div>
+          <div class="badge-label">Table Service</div>
+        </div>
+      </div>
+
+      <!-- Free Internet Wi-Fi -->
+      <div class="wifi-pill">
+        <span>📶</span>
+        <span class="wifi-text">FREE INTERNET WI-FI</span>
+      </div>
+    </div>
+
+    <!-- Bottom: Vibes & Contact Details -->
+    <div class="bottom-section">
+      <div class="vibes-line">Great Food · Great Drinks · Great Vibes</div>
+
+      <div class="gold-divider" style="margin:2mm auto 3mm">
+        <div class="divider-line"></div>
+        <div class="divider-diamond">❖</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-item">
+          <span class="icon">📞</span>
+          <span>07048008810, 08146774004</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📸</span>
+          <span>@Bijou.lounge_restaurant</span>
+        </div>
+      </div>
+
+      <div class="contact-sub">bijouinn.com</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

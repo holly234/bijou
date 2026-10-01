@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BIJOU - Front Cover Print</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4 portrait;margin:0}
+body{
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100vw;
+  height:100vh;
+}
+.cover-sheet{
+  width:210mm;
+  height:297mm;
+  display:block;
+  object-fit:cover;
+}
+@media print{
+  body{background:none}
+  .cover-sheet{width:100vw;height:100vh}
+}
+</style>
+</head>
+<body>
+<img src="assets/menu-front-cover.jpg" class="cover-sheet" alt="BIJOU Front Cover">
+</body>
+</html>
